@@ -1,0 +1,68 @@
+html, body {
+ margin: 0;
+ padding: 0;
+ font-family: 'MedievalSharp', sans-serif;
+}
+.title {
+ margin: 10px 0;
+ font-weight: bold;
+ font-size: 36px;
+ text-align: center;
+}
+.text {
+ font-family: 'Lato', sans-serif;
+ font-size: 12px;
+ color: #333;
+ text-align: center;
+} 
+#map { 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+#season-selector{
+    z-index: 9000;
+    margin: 30px 30px 24px;
+    border: none;
+    border-radius: 3px;
+    height: 9px;
+}
+#sidebar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+.legend{
+    max-width: 400px;
+}
+.ui-widget-content {
+  background: #D1BDA2;
+}
+.slider-range {
+  background: #792427;   
+  border-radius: 3px;
+}
+.slider-handle {
+  background:url(https://res.cloudinary.com/dh6mm17sc/image/upload/v1511284538/Bitmap_profpd.png) !important; 
+  border: none !important;
+  top: -14px !important;
+}
+.slider-handle:first-of-type {
+  background:url(https://res.cloudinary.com/dh6mm17sc/image/upload/v1511284542/Group_xmflvz.png) !important;
+  top: -16px !important;
+ height: 50px !important;
+}
+#season-labels {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30px 20px;
+}
+.season-label {
+  font-size: 16px;
+  font-weight: bold;
+}
