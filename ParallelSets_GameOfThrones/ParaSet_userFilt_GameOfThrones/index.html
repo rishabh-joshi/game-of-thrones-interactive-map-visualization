@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Parallel Sets Example using Game of Thrones Battles</title>
+  
+  <link rel="stylesheet" type="text/css" href="Styles/paraset_addOn.css" />
+  <link rel="stylesheet" type="text/css" href="Styles/d3.parsets.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
+  <link rel="stylesheet" type="text/css" href="Styles/style.css">
+  <link rel="stylesheet" id="options_typography_Roboto-300-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
+  <link rel="stylesheet" id="options_typography_Roboto-700-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
+  <script   src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"> -->
+    
+   <!--  The stylesheet below, "bootstrap_onlyWhatNeeded.css" is a subset of the commented out link above which was conflicting with d3.js, especially in terms of tooltip name space.  -->
+   <link rel="stylesheet" type="text/css" href="Styles/bootstrap_onlyWhatNeeded.css" />
+</head>
+
+<body>
+<!-- <div class="container-fluid"> -->
+<nav id="NIAM" class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <ul id="float_menu_right" class="nav navbar-nav navbar-right">
+        <!-- <li ><a href="#"><img height="100px", width="200px" src="images/NIAM_Logo.png"></a></li> -->
+        <li><a href="http://justingosses.com/">Home</a></li>
+        <li><a href="http://justingosses.com/maps/">Maps</a></li> 
+        <li><a href="http://justingosses.com/code/">Code</a></li>
+        <li><a href="http://justingosses.com/geology/">Geology</a></li>
+        <li><a href="http://justingosses.com/blog/">Blog</a></li> 
+        <li><a href="http://justingosses.com/code_gallery/">Gallery</a></li>
+        <li><a href="http://justingosses.com/resume/">Resume</a></li> 
+      </ul>
+    </div>
+</nav>
+
+<!-- Everything is inside of this body2 div to separate the nav menu on top from the rest of the data visualization -->
+<div id="body2">
+<!--  header area -->
+  <h1 >Parallel Sets Data Visualization</h1>
+  <p class="text-center">by Justin Gosses</p>
+  <h5 class="text-center">Interactive visualisation technique for multidimensional categorical data.</h5>
+  <h2>Game of Thrones Battles <small>(298-300)</small></h2> 
+<!--   drop down buttons menu -->
+  <div class="center margin_top_above_menus">
+    <button class="rebuild button">Rebuild Visualization</button>
+    <div class="center inline dropdown">
+      <ul id="drop-nav" class="">
+        <li><a href="#" class="Select_Datasets">Select New Datasets</a>
+          <ul id="dimensions_list">
+            <li><a href="#">There is</a></li>
+            <li><a href="#">a problem.</a></li>
+            <li><a href="#">Something didn't load. Probably JavaScript!</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+
+  <div id="vis"><noscript><img src="parsets.png"></noscript></div>
+
+  <!--   These don't work right now and will be fixed later -->
+<!--   <div class="options">
+    <span class="curves"><label for="curved"><input type="checkbox" id="curved" onchange="curves.call(this)"> Curves?</label></span>
+    <span class="curves"><label for="curved"><input type="checkbox" id="curved"> Curves?</label></span>
+  </div> -->
+
+  <div>
+    <p class="meta marginLeft">
+      <b>Please explore the data!</b> Category labels can be moved vertically and sub-labels moved horizontally to better see relationships. 
+    <p class="meta marginLeft">
+      The drop-down menu buttons allows you to select what data categories are included in the data visualization to help you better explore the data. 
+    </p>
+    <p class="meta marginLeft">
+      Hovering over the ribbons will bring up tooltip showing the absolute and % numbers associated with each ribbon. 
+    </p>
+  </div>
+  <!-- this is a separate explanation area of text below the main SVG -->
+  </br>
+  <hr>
+      <div>
+        <div>
+          <h3 class="closeMargBot">
+            Inspiration
+          </h3>
+          <p class="closeMargTop">
+            This visualization is based heavily on <a href="https://github.com/jasondavies/d3-parsets" target="blank">Jason Davies</a> d3-parasets project, which in turn was based on based on Robert Kosara windows and MacOS X native <a href="http://eagereyes.org/parallel-sets" target="blank">GUI</a>. You can find a longer discussion on add-ons I want to build into this project in <a href="http://justingosses.com/game-of-thrones-parallel-sets-data-visualization/" target="blank">this</a> blog post. One improvement I added in this d3.js implementation was the ability of the user to select which data categories or dimensions are shown. Additionally, the user can limit the visualizaion to only battles where a specific value in a specific category is present. For example, only the battles where the defender was the House Stark. 
+          </p>
+        </div>
+        <div>
+          <h3 class="closeMargBot">Why Build</h3>
+          <p class="closeMargTop">
+            The rational for these features is that parallel set visualizations can quickly get messy and being able to quickly explore different combinations of data without any coding or data preparation is makes this type of data visualization more useful.  
+          </p>
+        </div>
+        <div>
+          <h3 class="closeMargBot">How to use</h3>
+          <p class="closeMargTop">
+            This was devised as a data exploration tool. It helps to think of specific questions when using it. One example might be, "do attackers tend to be more successful in siege versus pitched battle?" or "How do the Starks fare in ambushes in year 300?" If you are limiting a category to only one or two values using the secondary drop-down menu, move those categories to the bottom of the visualization to see data relationships easier. Arrange the rest of the data categories vertically in a pseudo sentence structure. 
+          </p>
+        </div>
+        <div>
+          <h3 class="closeMargBot">Data</h3>
+          <p class="closeMargTop">
+            The dataset for this visualization comes from <a href="https://www.kaggle.com" target="blank">Kaggle</a>, a data science  website geared to competition and community. Please check the original <a href="https://www.kaggle.com/mylesoneill/game-of-thrones" target="blank">data source</a> to see if there are any updates as the Game of Thrones story progresses. You can also download the lightly edited version used in this page <a href="data/GOT_battles.csv">here</a>. 
+          </p>
+          <p class="closeMargTop">
+            You can download the code for this data visualization from <a href="https://github.com/JustinGOSSES/ParallelSets_GameOfThrones">this</a> github repo.  
+          </p>
+          <p class="closeMargTop">
+            or read more about it in this <a href="http://justingosses.com/game-of-thrones-parallel-sets-data-visualization/">blog</a> post.  
+          </p>
+        </div>
+       <!--  message for developers.. especially those who know a good cat video dataset for this data visualization -->
+       <!--  <div>
+          <h3 class="closeMargBot">Why use Game of Thrones data?</h3>
+          <p class="closeMargTop">
+            Admittedly, this dataset probably isn't the best for showing what can be done with parallel sets data visualizations. At the time however, I was shamelessly looking for a dataset non-data viz people would click on. Ten minutes of googling didn't produce a categorical flat dataset on the many different types of cat videos, so you get Game of Thrones battles. If you find said cat videos dataset, let <a href="mailto:justin@justingosses.com?Subject=IFoundAmazingCatVideodataset" target="_top">me</a> know. 
+          </p>
+        </div> -->
+      </div>
+    </div>  
+    </br>
+</div>  <!-- //ends div id="body2" -->
+  <script src="js/bootstrap.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/d3.parsets.js"></script>
+  <script src="js/highlight.min.js"></script>
+  <script src="js/d3.parsets.userFilt.js"></script>
+
+
+</body>
+</html>

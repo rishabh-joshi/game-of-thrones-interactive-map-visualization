@@ -1,0 +1,261 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+  font-family: sans-serif;
+  font-size: 16px;
+  /*width: 960px;*/
+  /*margin: 1em auto;
+  position: relative;*/
+  /*text-align: center;*/
+}
+
+div#body2{
+  vertical-align: middle;
+  font-family: sans-serif;
+  font-size: 16px;
+  width: 960px;
+  margin: 0px auto;
+  position: relative;
+}
+
+h3.closeMargBot{
+  /*margin-bottom: 5px;*/
+}
+p.closeMargTop{
+  margin-top: 3px;
+}
+
+
+div.margin_top_above_menus{
+  margin-top: 10px;
+}
+
+.text-center {
+  text-align: center !important; }
+
+h1, h2, .dimension text {
+  text-align: center;
+  font-family: "PT Sans", Helvetica;
+  font-weight: 300;
+}
+h1 {
+  font-size: 3em;
+  margin: .5em 0 0 0;
+}
+h2 {
+  font-size: 2em;
+  margin: 1em 0 0.5em;
+  border-bottom: solid #ccc 1px;
+}
+
+ h1.topH1 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+p.meta, p.footer {
+  font-size: 13px;
+  color: #333;
+}
+p.meta {
+  text-align: center;
+}
+
+text.icicle { pointer-events: none; }
+
+.options { font-size: 12px; text-align: center; padding: 5px 0; }
+.curves { float: left; }
+.source { float: right; }
+pre, code { font-family: "Menlo", monospace; }
+
+.html .value,
+.javascript .string,
+.javascript .regexp {
+  color: #756bb1;
+}
+
+.html .tag,
+.css .tag,
+.javascript .keyword {
+  color: #3182bd;
+}
+
+.comment {
+  color: #636363;
+}
+
+.html .doctype,
+.javascript .number {
+  color: #31a354;
+}
+
+.html .attribute,
+.css .attribute,
+.javascript .class,
+.javascript .special {
+  color: #e6550d;
+}
+
+
+/*CSS for the drop-down menu: */
+  ul {list-style: none;padding: 0px;margin: 0px;}
+  /*ul li {display: block;position: relative;float: left;border:1px solid #000}*/
+  ul li {display: block;position: relative;float: left; }
+  li ul {display: none;}
+/*  ul li a {display: block;background: black;
+            padding: 5px 10px 5px 8px;text-decoration: none;
+           white-space: nowrap;color: #fff;}*/
+
+  ul a {display: block;background: black;
+            padding: 5px 10px 5px 9px;text-decoration: none;
+           white-space: nowrap;color: #fff;}
+
+  li.dimensions {display: block;background: black;
+            padding: 0px 0px 0px 0px !important;
+            text-decoration: none;
+           white-space: nowrap;color: #fff;}         
+
+  ul li a:hover {
+    /*background: #0B93BD;*/
+    color:black;
+  }
+  li:hover ul {display: block; position: absolute; }
+  li:hover li {float: none;}
+  li:hover a {background: gray;}
+  li:hover li a:hover {
+    /*background: #0B93BD; */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+/*  #drop-nav li ul li {border-top: 0px;}*/
+/*  ul#drop-nav li a{border-color: white; border-width: 2px;}*/
+
+  ul li a.checked{
+    background: #EB9394;
+  }
+  ul li a.not_checked{
+    background: gray;
+  }
+
+
+/*  .checked{
+    background: #EB9394;
+  }
+  .not_checked{
+    background: gray;
+  }
+
+*/
+
+
+
+   ul li a.mouseD{
+    color:red;
+    background: #EB9394;
+  }
+
+
+
+
+
+  div.rebuild{
+    margin-right: 15px !important;
+  }
+
+div.inline {
+  display: inline-block;
+}
+
+
+.center {
+    width: 45%;
+    text-align: center ;
+    margin: 0 auto;
+  }
+
+/*a.rebuild{
+  border-radius: 7px;
+  background-color: gray;
+  color: white;
+}*/
+
+ul#drop-nav li a.Select_Datasets{
+  border-radius: 7px;
+  width: 190px;
+  font-size: 14px;
+  color:white;
+}
+
+ul#dimensions_list{
+  margin-left: 12px;
+}
+
+.rebuild{
+   border-radius: 7px;
+}
+.button {
+    background-color: black; /* #4CAF50; *//* Green */
+    border: none;
+    color: white;
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+   
+    /*margin-top: 0px;*/
+    vertical-align: top;
+
+}
+.button:hover {
+    background-color: #0B93BD; /* Green */
+    color: white;
+    color: black;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button:active {
+  /*box-shadow: 0 5px #666;*/
+  transform: translateY(2px);
+}
+button:focus {outline:0;}
+
+.rightMenu {
+    position:relative;
+    float:right;
+}
+
+.right-caret{
+    
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #000000;
+    display: inline-block;
+    height: 0;
+    opacity: 1;
+    vertical-align: top;
+    width: 0;
+    
+}
+
+.buck_right{
+    float:right;
+    left: 205px;
+    top: -28px;
+}
+.hiddenSlow{
+    visibility: hidden;
+    transition: 0.2s 1s;
+}
+.hidden{
+    visibility: hidden;
+}
+

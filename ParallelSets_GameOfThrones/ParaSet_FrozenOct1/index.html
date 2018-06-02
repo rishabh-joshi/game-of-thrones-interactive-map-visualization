@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<!-- Need to debug why tooltip in parallel sets doesn't work!!!!! -->
+<!-- Need to clean up text and design -->
+<head>
+  <meta charset="utf-8">
+  <title>Parallel Sets Example using Game of Thrones Battles</title>
+  
+  <link rel="stylesheet" type="text/css" href="ParaSet_transfer/paraset_inline.css" />
+  <link rel="stylesheet" type="text/css" href="ParaSet_transfer/d3.parsets.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
+  <link rel="stylesheet" type="text/css" href="Styles/style.css">
+  
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+  <!--  Remember to change the location of the two CSS links below and check for others in chort -->
+  <!-- <link rel="stylesheet" href="HC_chord_1/bower_components/foundation/css/foundation.css" /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="HC_chord_1/css/app.css" /> -->
+
+  <link rel="stylesheet" id="options_typography_Roboto-300-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
+   <link rel="stylesheet" id="options_typography_Roboto-700-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
+<script   src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <!--  <script src="HC_chord_1/bower_components/modernizr/modernizr.js"></script>
+  <script src="HC_chord_1/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="HC_chord_1/bower_components/angular/angular.min.js"></script> -->
+</head>
+
+<body>
+<!-- <div class="container-fluid"> -->
+<nav id="NIAM" class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <!-- <div class="navbar-header">
+        <a class="navbar-brand" href="https://niam.nasa.gov"><img height="36px", width="295px" src="images/NIAM_Logo.png"></a>
+      </div class="container"> -->
+      <ul class="nav navbar-nav">
+        <!-- <li ><a href="#"><img height="100px", width="200px" src="images/NIAM_Logo.png"></a></li> -->
+        <li><a href="http://justingosses.com/">Home</a></li>
+        <li><a href="http://justingosses.com/maps/">Maps</a></li> 
+        <li><a href="http://justingosses.com/code/">Code</a></li>
+        <li><a href="http://justingosses.com/geology/">Geology</a></li>
+        <li><a href="http://justingosses.com/blog/">Blog</a></li> 
+        <li><a href="http://justingosses.com/code_gallery/">Gallery</a></li>
+        <li><a href="http://justingosses.com/resume/">Resume</a></li> 
+      </ul>
+    </div>
+</nav>
+<!-- <div> -->
+<!--     put all content inside a div called id="body2" and use that like you would body for CSS if header and footer are different, for example full width. -->
+<div id="body2">
+
+<h1 >Parallel Sets Data Visualization</h1>
+<p class="text-center">by Justin Gosses</p>
+<!-- <h3>Parallel Sets and Chord Visualization</h3> -->
+<h5 class="text-center">Interactive visualisation technique for multidimensional categorical data.</h5>
+
+<h2>Game of Thrones Battles <small>(298-300)</small></h2>
+<div class="center">
+  <!-- <div class="rebuild"><ul class="rebuild"><li><a href="#" class="rebuild">rebuild</a></li></ul></div> -->
+  <button class="rebuild button">Rebuild Visualization</button>
+  <div class="center inline dropdown">
+    <ul id="drop-nav" class="">
+    <!--   <li><a href="#">Support</a></li> -->
+      <li><a href="#" class="Select_Datasets">Select New Datasets</a>
+        <ul id="dimensions_list">
+          <li><a href="#">There is</a></li>
+          <li><a href="#">a problem.</a></li>
+          <li><a href="#">Something didn't load. Probably JavaScript!</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+
+<div id="vis"><noscript><img src="parsets.png"></noscript></div>
+<!-- <div class="options">
+  <span class="curves"><label for="curved"><input type="checkbox" id="curved" onchange="curves.call(this)"> Curves?</label></span>
+  <span class="curves"><label for="curved"><input type="checkbox" id="curved"> Curves?</label></span>
+</div> -->
+<div>
+  <p class="meta marginLeft">
+    <b>Please explore the data!</b> Category labels can be moved vertically and sub-labels moved horizontally to better see relationships. Using the drop-down menu buttons on top allows you to select what data types are included to help you focus on specific relationships and explore the data.
+  <p class="meta marginLeft">
+    The band width as well as numbers and % in the tooltips (hover over a band to see them) are based on the numbers of battles that meet each category.
+  </p>
+<!--   <p class="meta">
+    Hovering over labels and bands will highlight relationships across categories.
+  </p> -->
+</div>
+<!-- this is the dividing line between parallel set above and chord below . -->
+</br>
+    <div>
+      <p>
+        This a draft version. If you find any bugs or areas for improvement, please submit a pull request on the github <a href="https://github.com/JustinGOSSES/ParallelSets_GameOfThrones">repo</a>.
+      </p>
+      <p>
+        This visualization is based heavily on <a href="https://github.com/jasondavies/d3-parsets" target="blank">Jason Davies</a> d3-parasets project. The first advance is the ability of the user to select which data dimensions are shown. Second, using the drop-down menu that extends to the right from the first drop-down menu, the user can limit the visualizaion to battles where a specified dimension matches a specified value. For example, only the battles where the defender was the House Stark or House Lannister.
+      </p>
+      <p>
+        The dataset for this visualization comes from <a href="https://www.kaggle.com" target="blank">Kaggle</a>, a data science  website geared to competition and community. I suspect there might be at least one error in the original dataset, so check the original <a href="https://www.kaggle.com/mylesoneill/game-of-thrones" target="blank">data source</a> to see if there are any updates before you use it. You can also download the lightly edited version I used <a href="ParaSet_transfer/GOT_battles.csv">here</a>.
+      </p>
+    </div>
+  </div>  
+  </br>
+</div>  <!-- //id="body2" -->
+  <script src="bootstrap.js"></script>
+  <script src="ParaSet_transfer/d3.min.js"></script>
+  <script src="ParaSet_transfer/d3.parsets.js"></script>
+<!--   <script src="ParaSet_transfer/highlight.min.js"></script>
+ -->  <script src="ParaSet_transfer/paraset_inlineScript.js"></script>
+
+
+</body>
+</html>
