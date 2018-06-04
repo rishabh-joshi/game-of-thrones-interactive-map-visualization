@@ -11,9 +11,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
     <style>
-      body{
-        font-family: "Helvetica Neue";
-      }
+        body {
+            font-family: "Helvetica Neue";
+            position:relative;
+        }
+
+        input[type="radio"] {
+            display:none;
+        }
+
+        input[type="radio"] + label {
+            color:#000000;
+            font-family:"Helvetica Neue";
+        }
+
+        input[type="radio"] + label span {
+            display:inline-block;
+            width:19px;
+            height:19px;
+            margin:-2px 1px 0 0;
+            vertical-align:middle;
+            background:url("../img/check_radio_sheet - Copy - Copy.png") -38px top no-repeat;
+            cursor:pointer;
+        }
+
+        input[type="radio"]:checked + label span {
+            background:url("../img/check_radio_sheet - Copy - Copy.png") -57px top no-repeat;
+        }
+
       header{
         margin: 15px;
       }
@@ -34,8 +59,8 @@
       #description{
         width: 100%;
         max-width: 1000px;
-        margin: 0 15px;
-        color: #999;
+        margin: 0 20px;
+        color: #000;
         font-size: 0.8em;
       }
       #description a{
@@ -44,7 +69,7 @@
       @import url(https://bost.ocks.org/mike/style.css);
       /*body{margin-left: 100px;}*/
       .background {
-        fill: #eee;
+        fill: #f7f7f7;
       }
       line {
         stroke: #fff;
@@ -53,7 +78,9 @@
         font-size: 0.7em;
       }
       text.active {
-        fill: red;
+        fill: blue;
+        font-weight:bold;
+        font-size: 0.9em;
       }
       svg{
         padding-left: 120px;
@@ -71,14 +98,35 @@
         <span> - Co-Occurrence</span>
       </h1>
     </header>
-    <div id="description">
-      <p>Code for this chart is on <a href="https://github.com/jeffreylancaster/game-of-thrones" target="_blank">github</a>, and a description of the project is on <a href="https://medium.com/@jeffrey.lancaster/the-ultimate-game-of-thrones-dataset-a100c0cf35fb" target="_blank">Medium</a>. Comments and suggestions are welcome on github, Medium, or <a href="mailto: jeffrey@jeffreylancaster.com" target="_blank">here</a>.</p>
-      <p>This visualization is based on Mike Bostock's <a href="https://bost.ocks.org/mike/miserables/" target="_blank"><i>Les Mis&eacute;rables</i> co-occurrence matrix diagram</a>.
+<!--     <div id="description">
       <p>Order: <select id="order">
         <option value="name">by Name</option>
         <option value="count">by Frequency</option>
         <option value="group">by Cluster</option>
       </select></p>
+    </div> -->
+
+<!--     <div id="description"> 
+        <form id = "sort-by">
+            Order By:
+            <input type="radio" name="sort-by" value="name"> name
+            <input type="radio" name="sort-by" value="count"> count
+            <input type="radio" name="sort-by" value="group"> group
+        </form>
+    </div> -->
+
+    <div id="description"> 
+        <form id = "sort-by2">
+            Order By:
+            <input type="radio" id="r1" name="sort-by2" value="name" />
+            <label for="r1"><span></span>Name</label>
+
+            <input type="radio" id="r2" name="sort-by2" value="count" />
+            <label for="r2"><span></span>Frequency</label>
+
+            <input type="radio" id="r3" name="sort-by2" value="group" />
+            <label for="r3"><span></span>House</label>
+        </form>
     </div>
     
     <svg></svg>
@@ -86,28 +134,25 @@
     <script>
 
     var margin = {top: 120, right: 60, bottom: 60, left: 120},
-      // width = 5600, // for all characters matrixObject-all.json
-      // height = 5600; // for all characters matrixObject-all.json
-      width = 1500, // for main characters matrixObject-main.json
-      height = 1500; // for main characters matrixObject-main.json
+        width = 1000, // for main characters matrixObject-main.json
+        height = 1000; // for main characters matrixObject-main.json
 
     var x = d3.scale.ordinal().rangeBands([0, width]),
-      z = d3.scale.linear().domain([0, 100]).clamp(true),
+      z = d3.scale.linear().domain([0, 1500]).clamp(true),
       //c = d3.scale.category20c().domain(d3.range(20));
       c = d3.scale.ordinal().range([
-          "#666666",  // Stark
-          "#9B0056",  // Targaryen
-          "#B36305",  // Baratheon
-          "#FFD300",  // Lannister
+          "#3b4960",  // Stark
+          "#871212",  // Targaryen
+          "#9b5f00",  // Baratheon
+          "#fffa1c",  // Lannister
           "#000000",  // Night's Watch
-          "#00782A",  // Dothraki
+          "#E32017",  // Dothraki
           "#003688",  // Greyjoy
-          "#E32017",  // Tyrell
+          "#00782A",  // Tyrell
           "#95CDBA",  // Wildling
-          "#EE7C0E",  // Martell
+          "#ff8c00",  // Martell
           "#00A4A7",  // Frey
           "#0098D4",  // Tully
-          "#87CEFA",  // White Walkers
           "#F3A9BB"   // Include
           ]);
 
@@ -115,128 +160,164 @@
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .style("margin-left", -margin.left + "px")
-      .append("g")
+        .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.json("../data/matrixObject-main.json", function(GoTmatrix) {
-      var matrix = [],
+    d3.json("../data/new_data.json", function(GoTmatrix) {
+
+        // create a matrix to store the character-character number of occurrences
+        // row and columns represents characters and the entries in the matrix will
+        // represent the count of the scenes those characters experienced together
+        var matrix = [],
         nodes = GoTmatrix.nodes,
         n = nodes.length;
 
-    // Compute index per node.
-    nodes.forEach(function(node, i) {
-      node.index = i;
-      node.count = 0;
-      matrix[i] = d3.range(n).map(function(j) { return {x: j, y: i, z: 0}; });
-    });
+        // Compute index per node.
+        nodes.forEach(function(node, i) {
+            node.index = i;
+            node.count = 0;
+            matrix[i] = d3.range(n).map(function(j) { return {x: j, y: i, z: 0}; });
+        });
 
-    // Convert links to matrix; count character occurrences.
-    GoTmatrix.links.forEach(function(link) {
-      matrix[link.source][link.target].z += link.value;
-      matrix[link.target][link.source].z += link.value;
-      matrix[link.source][link.source].z += link.value;
-      matrix[link.target][link.target].z += link.value;
-      nodes[link.source].count += link.value;
-      nodes[link.target].count += link.value;
-    });
+        // Convert links to matrix; count character occurrences.
+        GoTmatrix.links.forEach(function(link) {
+            matrix[link.source][link.target].z += link.value;
+            matrix[link.target][link.source].z += link.value;
+            matrix[link.source][link.source].z += 0;
+            matrix[link.target][link.target].z += 0;
+            nodes[link.source].count += link.value;
+            nodes[link.target].count += link.value;
+        });
 
-    // Precompute the orders.
-    var orders = {
-      name: d3.range(n).sort(function(a, b) { return d3.ascending(nodes[a].name, nodes[b].name); }),
-      count: d3.range(n).sort(function(a, b) { return nodes[b].count - nodes[a].count; }),
-      group: d3.range(n).sort(function(a, b) { return nodes[a].group - nodes[b].group; })
-    };
+        console.log(matrix);
+        var values = matrix.map(function(elt) { return Math.max.apply(Math,elt.map(function(o){return o.z;})); });
+        console.log(values);
 
-    // The default sort order.
-    x.domain(orders.name);
 
-    svg.append("rect")
-        .attr("class", "background")
-        .attr("width", width)
-        .attr("height", height);
+        // Define the orders in which the users will be allowed to sort the matrix
+        var orders = {
+            // alphabetical order by name
+            name: d3.range(n).sort(function(a, b) { return d3.ascending(nodes[a].name, nodes[b].name); }),
+            // 
+            count: d3.range(n).sort(function(a, b) { return nodes[b].count - nodes[a].count; }),
+            // order by the group in which the characters belong
+            group: d3.range(n).sort(function(a, b) { return nodes[a].group - nodes[b].group; })
+        };
 
-    var row = svg.selectAll(".row")
-        .data(matrix)
-      .enter().append("g")
-        .attr("class", "row")
-        .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
-        .each(row);
+        // set the default order to be the alphabetical order
+        x.domain(orders.name);
 
-    row.append("line")
-        .attr("x2", width);
+        svg.append("rect")
+            .attr("class", "background")
+            .attr("width", width)
+            .attr("height", height);
 
-    row.append("text")
-        .attr("x", -6)
-        .attr("y", x.rangeBand() / 2)
-        .attr("dy", ".32em")
-        .attr("text-anchor", "end")
-        .text(function(d, i) { return nodes[i].name; });
+        var row = svg.selectAll(".row")
+            .data(matrix)
+            .enter().append("g")
+            .attr("class", "row")
+            .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
+            .each(row);
 
-    var column = svg.selectAll(".column")
-      .data(matrix)
-      .enter().append("g")
-        .attr("class", "column")
-        .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
+        row.append("line")
+            .attr("x2", width);
 
-    column.append("line")
-        .attr("x1", -width);
+        row.append("text")
+            .attr("x", -6)
+            .attr("y", x.rangeBand() / 2)
+            .attr("dy", ".32em")
+            .attr("text-anchor", "end")
+            .text(function(d, i) { return nodes[i].name; });
 
-    column.append("text")
-        .attr("x", 6)
-        .attr("y", x.rangeBand() / 2)
-        .attr("dy", ".32em")
-        .attr("text-anchor", "start")
-        .text(function(d, i) { return nodes[i].name; });
+        var column = svg.selectAll(".column")
+            .data(matrix)
+            .enter().append("g")
+            .attr("class", "column")
+            .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
 
-    function row(row) {
-      var cell = d3.select(this).selectAll(".cell")
-          .data(row.filter(function(d) { return d.z; }))
-        .enter().append("rect")
-          .attr("class", "cell")
-          .attr("x", function(d) { return x(d.x); })
-          .attr("width", x.rangeBand())
-          .attr("height", x.rangeBand())
-          .style("fill-opacity", function(d) { return z(d.z); })
-          .style("fill", function(d) { return nodes[d.x].group == nodes[d.y].group ? c(nodes[d.x].group) : null; })
-          .on("mouseover", mouseover)
-          .on("mouseout", mouseout);
-    }
+        column.append("line")
+            .attr("x1", -width);
 
-    function mouseover(p) {
-      d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
-      d3.selectAll(".column text").classed("active", function(d, i) { return i == p.x; });
-    }
+        column.append("text")
+            .attr("x", 6)
+            .attr("y", x.rangeBand() / 2)
+            .attr("dy", ".32em")
+            .attr("text-anchor", "start")
+            .text(function(d, i) { return nodes[i].name; });
 
-    function mouseout() {
-      d3.selectAll("text").classed("active", false);
-    }
+        function row(row) {
+          var cell = d3.select(this).selectAll(".cell")
+              .data(row.filter(function(d) { return d.z; }))
+              .enter().append("rect")
+              .attr("class", "cell")
+              .attr("x", function(d) { return x(d.x); })
+              .attr("width", x.rangeBand())
+              .attr("height", x.rangeBand())
+              .style("fill-opacity", function(d) { return z(d.z); }) // the opacity will be equal to the count of occurrences
+              .style("fill", function(d) { return nodes[d.x].group == nodes[d.y].group ? c(nodes[d.x].group) : "#adadad"; })
+              .on("mouseover", mouseover)
+              .on("mouseout", mouseout);
+        }
 
-    d3.select("#order").on("change", function() {
-      clearTimeout(timeout);
-      order(this.value);
-    });
+        function mouseover(p) {
+            d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
+            d3.selectAll(".column text").classed("active", function(d, i) { return i == p.x; });
+        }
 
-    function order(value) {
-      x.domain(orders[value]);
+        function mouseout() {
+            d3.selectAll("text").classed("active", false);
+        }
 
-      var t = svg.transition().duration(2500);
+        // d3.select("#order").on("change", function() {
+        //     clearTimeout(timeout);
+        //     order(this.value);
+        // });
 
-      t.selectAll(".row")
-        .delay(function(d, i) { return x(i) * 4; })
-        .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
-      .selectAll(".cell")
-        .delay(function(d) { return x(d.x) * 4; })
-        .attr("x", function(d) { return x(d.x); });
+        function order(value) {
+            x.domain(orders[value]);
 
-      t.selectAll(".column")
-        .delay(function(d, i) { return x(i) * 4; })
-        .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
-    }
+            var t = svg.transition().duration(2500);
 
-    var timeout = setTimeout(function() {
-      order("group");
-      d3.select("#order").property("selectedIndex", 2).node().focus();
-      }, 5000);
+            t.selectAll(".row")
+            .delay(function(d, i) { return x(i) * 4; })
+            .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
+            .selectAll(".cell")
+            .delay(function(d) { return x(d.x) * 4; })
+            .attr("x", function(d) { return x(d.x); });
+
+            t.selectAll(".column")
+            .delay(function(d, i) { return x(i) * 4; })
+            .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
+        }
+
+        // var timeout = setTimeout(function() {
+        //     order("group");
+        //     d3.select("#order").property("selectedIndex", 2).node().focus();
+        // }, 500);
+
+        // using radio buttons       
+
+        d3.select("#sort-by2").on("change", function() {
+            clearTimeout(timeout);
+
+            for (var i = 0, length = this.length; i < length; i++)
+            {
+             if (this[i].checked)
+             {
+              // do whatever you want with the checked radio
+              console.log(this[i].value);
+              order(this[i].value);
+
+              // only one radio can be logically checked, don't check the rest
+              break;
+             }
+            }
+        });
+
+        var timeout = setTimeout(function() {
+            order("group");
+        }, 500);
+
     });
 
     </script>

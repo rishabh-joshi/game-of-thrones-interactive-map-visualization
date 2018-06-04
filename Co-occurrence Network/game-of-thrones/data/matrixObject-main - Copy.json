@@ -21,23 +21,7 @@
 			"group": 1
 		},
 		{
-			"name": "Ghost",
-			"group": 1
-		},
-		{
-			"name": "Grey Wind",
-			"group": 1
-		},
-		{
 			"name": "Jon Snow",
-			"group": 1
-		},
-		{
-			"name": "Lady",
-			"group": 1
-		},
-		{
-			"name": "Nymeria",
 			"group": 1
 		},
 		{
@@ -50,14 +34,6 @@
 		},
 		{
 			"name": "Sansa Stark",
-			"group": 1
-		},
-		{
-			"name": "Shaggydog",
-			"group": 1
-		},
-		{
-			"name": "Summer",
 			"group": 1
 		},
 		{
@@ -82,275 +58,187 @@
 		},
 		{
 			"name": "Joffrey Baratheon",
-			"group": 4
-		},
-		{
-			"name": "Myrcella Baratheon",
-			"group": 4
+			"group": 3
 		},
 		{
 			"name": "Renly Baratheon",
-			"group": 4
+			"group": 3
 		},
 		{
 			"name": "Robert Baratheon",
-			"group": 4
-		},
-		{
-			"name": "Selyse Baratheon",
-			"group": 4
-		},
-		{
-			"name": "Shireen Baratheon",
-			"group": 4
+			"group": 3
 		},
 		{
 			"name": "Stannis Baratheon",
-			"group": 4
+			"group": 3
 		},
 		{
 			"name": "Tommen Baratheon",
-			"group": 4
+			"group": 3
 		},
 		{
 			"name": "Cersei Lannister",
-			"group": 3
+			"group": 4
 		},
 		{
 			"name": "Jaime Lannister",
-			"group": 3
-		},
-		{
-			"name": "Kevan Lannister",
-			"group": 3
-		},
-		{
-			"name": "Lancel Lannister",
-			"group": 3
+			"group": 4
 		},
 		{
 			"name": "Tyrion Lannister",
-			"group": 3
+			"group": 4
 		},
 		{
 			"name": "Tywin Lannister",
-			"group": 3
+			"group": 4
 		},
 		{
 			"name": "Alliser Thorne",
-			"group": 10
-		},
-		{
-			"name": "Eddison Tollett",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Grenn",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Jeor Mormont",
-			"group": 10
-		},
-		{
-			"name": "Karl Tanner",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Maester Aemon",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Olly",
-			"group": 10
-		},
-		{
-			"name": "Othell Yarwyck",
-			"group": 10
-		},
-		{
-			"name": "Pypar",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Qhorin Halfhand",
-			"group": 10
-		},
-		{
-			"name": "Rast",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Samwell Tarly",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Yoren",
-			"group": 10
+			"group": 5
 		},
 		{
 			"name": "Doreah",
-			"group": 11
-		},
-		{
-			"name": "Irri",
-			"group": 11
+			"group": 6
 		},
 		{
 			"name": "Khal Drogo",
-			"group": 11
+			"group": 6
 		},
 		{
 			"name": "Rakharo",
-			"group": 11
+			"group": 6
 		},
 		{
 			"name": "Balon Greyjoy",
-			"group": 5
+			"group": 7
 		},
 		{
 			"name": "Euron Greyjoy",
-			"group": 5
+			"group": 7
 		},
 		{
 			"name": "Theon Greyjoy",
-			"group": 5
+			"group": 7
 		},
 		{
 			"name": "Yara Greyjoy",
-			"group": 5
+			"group": 7
 		},
 		{
 			"name": "Loras Tyrell",
-			"group": 6
+			"group": 8
 		},
 		{
 			"name": "Mace Tyrell",
-			"group": 6
+			"group": 8
 		},
 		{
 			"name": "Margaery Tyrell",
-			"group": 6
+			"group": 8
 		},
 		{
 			"name": "Olenna Tyrell",
-			"group": 6
-		},
-		{
-			"name": "Baby Sam",
-			"group": 12
+			"group": 8
 		},
 		{
 			"name": "Craster",
-			"group": 12
+			"group": 9
 		},
 		{
 			"name": "Gilly",
-			"group": 12
-		},
-		{
-			"name": "Mag the Mighty",
-			"group": 12
+			"group": 9
 		},
 		{
 			"name": "Mance Rayder",
-			"group": 12
+			"group": 9
 		},
 		{
 			"name": "Osha",
-			"group": 12
-		},
-		{
-			"name": "Rattleshirt",
-			"group": 12
-		},
-		{
-			"name": "Thenn Warg",
-			"group": 12
+			"group": 9
 		},
 		{
 			"name": "Tormund Giantsbane",
-			"group": 12
-		},
-		{
-			"name": "Wun Wun",
-			"group": 12
+			"group": 9
 		},
 		{
 			"name": "Ygritte",
-			"group": 12
+			"group": 9
 		},
 		{
 			"name": "Doran Martell",
-			"group": 7
+			"group": 10
 		},
 		{
 			"name": "Ellaria Sand",
-			"group": 7
+			"group": 10
 		},
 		{
 			"name": "Nymeria Sand",
-			"group": 7
+			"group": 10
 		},
 		{
 			"name": "Obara Sand",
-			"group": 7
+			"group": 10
 		},
 		{
 			"name": "Oberyn Martell",
-			"group": 7
+			"group": 10
 		},
 		{
 			"name": "Trystane Martell",
-			"group": 7
+			"group": 10
 		},
 		{
 			"name": "Tyene Sand",
-			"group": 7
+			"group": 10
 		},
 		{
 			"name": "Black Walder Rivers",
-			"group": 8
+			"group": 11
 		},
 		{
 			"name": "Lothar Frey",
-			"group": 8
+			"group": 11
 		},
 		{
 			"name": "Walder Frey",
-			"group": 8
+			"group": 11
 		},
 		{
 			"name": "Brynden Tully",
-			"group": 9
+			"group": 12
 		},
 		{
 			"name": "Edmure Tully",
-			"group": 9
-		},
-		{
-			"name": "Mag the Mighty Wight",
-			"group": 13
-		},
-		{
-			"name": "The Night King",
-			"group": 13
-		},
-		{
-			"name": "White Walker",
-			"group": 13
-		},
-		{
-			"name": "Wight Wildling Girl",
-			"group": 13
-		},
-		{
-			"name": "Wun Wun Wight",
-			"group": 13
-		},
-		{
-			"name": "Archmaester Marwyn",
-			"group": 14
+			"group": 12
 		},
 		{
 			"name": "Barristan Selmy",
@@ -385,31 +273,11 @@
 			"group": 14
 		},
 		{
-			"name": "Greatjon Umber",
-			"group": 14
-		},
-		{
 			"name": "Gregor Clegane",
 			"group": 14
 		},
 		{
-			"name": "Greizhen mo Ullhor",
-			"group": 14
-		},
-		{
 			"name": "Grey Worm",
-			"group": 14
-		},
-		{
-			"name": "Hallyne",
-			"group": 14
-		},
-		{
-			"name": "High Sparrow",
-			"group": 14
-		},
-		{
-			"name": "Hizdahr zo Loraq",
 			"group": 14
 		},
 		{
@@ -421,43 +289,7 @@
 			"group": 14
 		},
 		{
-			"name": "Janos Slynt",
-			"group": 14
-		},
-		{
-			"name": "Jaqen H'ghar",
-			"group": 14
-		},
-		{
-			"name": "Jojen Reed",
-			"group": 14
-		},
-		{
 			"name": "Jorah Mormont",
-			"group": 14
-		},
-		{
-			"name": "Jory Cassel",
-			"group": 14
-		},
-		{
-			"name": "Kraznys mo Nakloz",
-			"group": 14
-		},
-		{
-			"name": "Lady Crane",
-			"group": 14
-		},
-		{
-			"name": "Leaf",
-			"group": 14
-		},
-		{
-			"name": "Locke",
-			"group": 14
-		},
-		{
-			"name": "Lommy Greenhands",
 			"group": 14
 		},
 		{
@@ -473,31 +305,11 @@
 			"group": 14
 		},
 		{
-			"name": "Maester Luwin",
-			"group": 14
-		},
-		{
-			"name": "Matthos Seaworth",
-			"group": 14
-		},
-		{
-			"name": "Meera Reed",
-			"group": 14
-		},
-		{
 			"name": "Melisandre",
 			"group": 14
 		},
 		{
-			"name": "Mirri Maz Duur",
-			"group": 14
-		},
-		{
 			"name": "Missandei",
-			"group": 14
-		},
-		{
-			"name": "Olyvar",
 			"group": 14
 		},
 		{
@@ -509,14 +321,6 @@
 			"group": 14
 		},
 		{
-			"name": "Prendahl na Ghezn",
-			"group": 14
-		},
-		{
-			"name": "Pyat Pree",
-			"group": 14
-		},
-		{
 			"name": "Qyburn",
 			"group": 14
 		},
@@ -525,31 +329,7 @@
 			"group": 14
 		},
 		{
-			"name": "Razdal mo Eraz",
-			"group": 14
-		},
-		{
-			"name": "Rickard Karstark",
-			"group": 14
-		},
-		{
-			"name": "Robin Arryn",
-			"group": 14
-		},
-		{
-			"name": "Rodrik Cassel",
-			"group": 14
-		},
-		{
 			"name": "Roose Bolton",
-			"group": 14
-		},
-		{
-			"name": "Ros",
-			"group": 14
-		},
-		{
-			"name": "Salladhor Saan",
 			"group": 14
 		},
 		{
@@ -557,55 +337,7 @@
 			"group": 14
 		},
 		{
-			"name": "Septa Mordane",
-			"group": 14
-		},
-		{
-			"name": "Septa Unella",
-			"group": 14
-		},
-		{
 			"name": "Shae",
-			"group": 14
-		},
-		{
-			"name": "Silk King",
-			"group": 14
-		},
-		{
-			"name": "Smalljon Umber",
-			"group": 14
-		},
-		{
-			"name": "Syrio Forel",
-			"group": 14
-		},
-		{
-			"name": "Talisa Maegyr",
-			"group": 14
-		},
-		{
-			"name": "The Waif",
-			"group": 14
-		},
-		{
-			"name": "Thoros of Myr",
-			"group": 14
-		},
-		{
-			"name": "Three-Eyed Raven",
-			"group": 14
-		},
-		{
-			"name": "Xaro Xhoan Daxos",
-			"group": 14
-		},
-		{
-			"name": "Yezzan zo Qaggaz",
-			"group": 14
-		},
-		{
-			"name": "Yohn Royce",
 			"group": 14
 		}
 	],
