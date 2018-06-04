@@ -2,431 +2,431 @@
  "nodes": [
   {
    "name": "Arya Stark",
-   "group": 1,
+   "house": 1,
    "index": 0
   },
   {
    "name": "Benjen Stark",
-   "group": 1,
+   "house": 1,
    "index": 1
   },
   {
    "name": "Bran Stark",
-   "group": 1,
+   "house": 1,
    "index": 2
   },
   {
    "name": "Catelyn Stark",
-   "group": 1,
+   "house": 1,
    "index": 3
   },
   {
    "name": "Eddard Stark",
-   "group": 1,
+   "house": 1,
    "index": 4
   },
   {
    "name": "Jon Snow",
-   "group": 1,
+   "house": 1,
    "index": 5
   },
   {
    "name": "Rickon Stark",
-   "group": 1,
+   "house": 1,
    "index": 6
   },
   {
    "name": "Robb Stark",
-   "group": 1,
+   "house": 1,
    "index": 7
   },
   {
    "name": "Sansa Stark",
-   "group": 1,
+   "house": 1,
    "index": 8
   },
   {
    "name": "Daenerys Targaryen",
-   "group": 2,
+   "house": 2,
    "index": 9
   },
   {
    "name": "Drogon",
-   "group": 2,
+   "house": 2,
    "index": 10
   },
   {
    "name": "Rhaegal",
-   "group": 2,
+   "house": 2,
    "index": 11
   },
   {
    "name": "Viserion",
-   "group": 2,
+   "house": 2,
    "index": 12
   },
   {
    "name": "Viserys Targaryen",
-   "group": 2,
+   "house": 2,
    "index": 13
   },
   {
    "name": "Joffrey Baratheon",
-   "group": 4,
+   "house": 4,
    "index": 14
   },
   {
    "name": "Renly Baratheon",
-   "group": 4,
+   "house": 4,
    "index": 15
   },
   {
    "name": "Robert Baratheon",
-   "group": 4,
+   "house": 4,
    "index": 16
   },
   {
    "name": "Stannis Baratheon",
-   "group": 4,
+   "house": 4,
    "index": 17
   },
   {
    "name": "Tommen Baratheon",
-   "group": 4,
+   "house": 4,
    "index": 18
   },
   {
    "name": "Cersei Lannister",
-   "group": 3,
+   "house": 3,
    "index": 19
   },
   {
    "name": "Jaime Lannister",
-   "group": 3,
+   "house": 3,
    "index": 20
   },
   {
    "name": "Tyrion Lannister",
-   "group": 3,
+   "house": 3,
    "index": 21
   },
   {
    "name": "Tywin Lannister",
-   "group": 3,
+   "house": 3,
    "index": 22
   },
   {
    "name": "Alliser Thorne",
-   "group": 10,
+   "house": 10,
    "index": 23
   },
   {
    "name": "Grenn",
-   "group": 10,
+   "house": 10,
    "index": 24
   },
   {
    "name": "Jeor Mormont",
-   "group": 10,
+   "house": 10,
    "index": 25
   },
   {
    "name": "Maester Aemon",
-   "group": 10,
+   "house": 10,
    "index": 26
   },
   {
    "name": "Olly",
-   "group": 10,
+   "house": 10,
    "index": 27
   },
   {
    "name": "Qhorin Halfhand",
-   "group": 10,
+   "house": 10,
    "index": 28
   },
   {
    "name": "Samwell Tarly",
-   "group": 10,
+   "house": 10,
    "index": 29
   },
   {
    "name": "Yoren",
-   "group": 10,
+   "house": 10,
    "index": 30
   },
   {
    "name": "Doreah",
-   "group": 11,
+   "house": 11,
    "index": 31
   },
   {
    "name": "Khal Drogo",
-   "group": 11,
+   "house": 11,
    "index": 32
   },
   {
    "name": "Rakharo",
-   "group": 11,
+   "house": 11,
    "index": 33
   },
   {
    "name": "Balon Greyjoy",
-   "group": 5,
+   "house": 5,
    "index": 34
   },
   {
    "name": "Euron Greyjoy",
-   "group": 5,
+   "house": 5,
    "index": 35
   },
   {
    "name": "Theon Greyjoy",
-   "group": 5,
+   "house": 5,
    "index": 36
   },
   {
    "name": "Yara Greyjoy",
-   "group": 5,
+   "house": 5,
    "index": 37
   },
   {
    "name": "Loras Tyrell",
-   "group": 6,
+   "house": 6,
    "index": 38
   },
   {
    "name": "Mace Tyrell",
-   "group": 6,
+   "house": 6,
    "index": 39
   },
   {
    "name": "Margaery Tyrell",
-   "group": 6,
+   "house": 6,
    "index": 40
   },
   {
    "name": "Olenna Tyrell",
-   "group": 6,
+   "house": 6,
    "index": 41
   },
   {
    "name": "Craster",
-   "group": 12,
+   "house": 12,
    "index": 42
   },
   {
    "name": "Gilly",
-   "group": 12,
+   "house": 12,
    "index": 43
   },
   {
    "name": "Mance Rayder",
-   "group": 12,
+   "house": 12,
    "index": 44
   },
   {
    "name": "Osha",
-   "group": 12,
+   "house": 12,
    "index": 45
   },
   {
    "name": "Tormund Giantsbane",
-   "group": 12,
+   "house": 12,
    "index": 46
   },
   {
    "name": "Ygritte",
-   "group": 12,
+   "house": 12,
    "index": 47
   },
   {
    "name": "Doran Martell",
-   "group": 7,
+   "house": 7,
    "index": 48
   },
   {
    "name": "Ellaria Sand",
-   "group": 7,
+   "house": 7,
    "index": 49
   },
   {
    "name": "Nymeria Sand",
-   "group": 7,
+   "house": 7,
    "index": 50
   },
   {
    "name": "Obara Sand",
-   "group": 7,
+   "house": 7,
    "index": 51
   },
   {
    "name": "Oberyn Martell",
-   "group": 7,
+   "house": 7,
    "index": 52
   },
   {
    "name": "Trystane Martell",
-   "group": 7,
+   "house": 7,
    "index": 53
   },
   {
    "name": "Tyene Sand",
-   "group": 7,
+   "house": 7,
    "index": 54
   },
   {
    "name": "Black Walder Rivers",
-   "group": 8,
+   "house": 8,
    "index": 55
   },
   {
    "name": "Lothar Frey",
-   "group": 8,
+   "house": 8,
    "index": 56
   },
   {
    "name": "Walder Frey",
-   "group": 8,
+   "house": 8,
    "index": 57
   },
   {
    "name": "Brynden Tully",
-   "group": 9,
+   "house": 9,
    "index": 58
   },
   {
    "name": "Edmure Tully",
-   "group": 9,
+   "house": 9,
    "index": 59
   },
   {
    "name": "Barristan Selmy",
-   "group": 14,
+   "house": 14,
    "index": 60
   },
   {
    "name": "Beric Dondarrion",
-   "group": 14,
+   "house": 14,
    "index": 61
   },
   {
    "name": "Brienne of Tarth",
-   "group": 14,
+   "house": 14,
    "index": 62
   },
   {
    "name": "Bronn",
-   "group": 14,
+   "house": 14,
    "index": 63
   },
   {
    "name": "Daario Naharis",
-   "group": 14,
+   "house": 14,
    "index": 64
   },
   {
    "name": "Davos Seaworth",
-   "group": 14,
+   "house": 14,
    "index": 65
   },
   {
    "name": "Gendry",
-   "group": 14,
+   "house": 14,
    "index": 66
   },
   {
    "name": "Grand Maester Pycelle",
-   "group": 14,
+   "house": 14,
    "index": 67
   },
   {
    "name": "Gregor Clegane",
-   "group": 14,
+   "house": 14,
    "index": 68
   },
   {
    "name": "Grey Worm",
-   "group": 14,
+   "house": 14,
    "index": 69
   },
   {
    "name": "Hodor",
-   "group": 14,
+   "house": 14,
    "index": 70
   },
   {
    "name": "Hot Pie",
-   "group": 14,
+   "house": 14,
    "index": 71
   },
   {
    "name": "Jorah Mormont",
-   "group": 14,
+   "house": 14,
    "index": 72
   },
   {
    "name": "Lord Varys",
-   "group": 14,
+   "house": 14,
    "index": 73
   },
   {
    "name": "Lyanna Mormont",
-   "group": 14,
+   "house": 14,
    "index": 74
   },
   {
    "name": "Lysa Arryn",
-   "group": 14,
+   "house": 14,
    "index": 75
   },
   {
    "name": "Melisandre",
-   "group": 14,
+   "house": 14,
    "index": 76
   },
   {
    "name": "Missandei",
-   "group": 14,
+   "house": 14,
    "index": 77
   },
   {
    "name": "Petyr Baelish",
-   "group": 14,
+   "house": 14,
    "index": 78
   },
   {
    "name": "Podrick Payne",
-   "group": 14,
+   "house": 14,
    "index": 79
   },
   {
    "name": "Qyburn",
-   "group": 14,
+   "house": 14,
    "index": 80
   },
   {
    "name": "Ramsay Snow",
-   "group": 14,
+   "house": 14,
    "index": 81
   },
   {
    "name": "Roose Bolton",
-   "group": 14,
+   "house": 14,
    "index": 82
   },
   {
    "name": "Sandor Clegane",
-   "group": 14,
+   "house": 14,
    "index": 83
   },
   {
    "name": "Shae",
-   "group": 14,
+   "house": 14,
    "index": 84
   }
  ],
- "links": [
+ "edges": [
   {
    "source": 1,
    "target": 0,

@@ -1,0 +1,143 @@
+/*-----------------------------------+
+ | Site: Landing Page Visualizations |
+ | Part: Master styles               |
+ +-----------------------------------*/
+
+/* Imports
+=====================================================================*/
+/*@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Droid+Serif:400,400italic,700,700italic);
+*//*@import "../styles/reset.css";*/
+
+
+/* Fonts
+======================================================================*/
+body, #credit { font-family: 'Roboto,300 light', sans-serif; }
+#header { font-family: 'Roboto,300 light', sans-serif;}
+
+body {margin: 0px;
+  width: 100%;
+  }
+/* Basics
+======================================================================*/
+
+nav#NIAM{
+  min-height: 70px;
+}
+
+ul#float_menu_right{
+  text-align: right;
+  margin-top: 10px;
+  margin-right: 0px;
+}
+
+div.container-fluid{
+  vertical-align: middle;
+}
+
+/*a { color: #f85204; text-decoration: none; }*/
+a:hover { text-decoration: underline; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html{
+  width:100%;
+}
+
+
+ a:link, a:visited {
+ /*   color: #777;*/
+    text-decoration: none;
+}
+
+div.container-fluid ul.navbar-nav li a{
+  background-color: #222222 !important;
+/*  color: #222222 !important;*/
+}
+
+a:hover {
+    color: #666;
+}
+blockquote {
+    margin: 0;
+}
+blockquote:before {
+    content:"Ã¢â‚¬Å“";
+    position: absolute;
+    left: -.4em;
+}
+blockquote:after {
+    content:"Ã¢â‚¬Â";
+    position: absolute;
+}
+body > ul {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-size: 64px;
+}
+h1, h2, h3 {
+    font-weight: inherit;
+    margin: 0;
+}
+
+
+div.not-loaded {
+  display: none;
+}
+
+
+
+
+div.navBar {
+  background-color: black;
+  height: 100px;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  /*position: absolute;*/
+  margin-top: 0px;
+}
+
+div.navBar p{
+  margin-top: 0px;
+  color: white;
+}
+
+
+
+div.flexBox {
+  width: 100%;
+  /*max-width: 1043px;*/
+  display: inline-flex;
+  /*margin-top: 0px;*/
+  flex-flow: space-around;
+  /* margin-bottom: -200px;*/
+  /*margin: 15px auto -38px auto;*/
+  flex-wrap: wrap;
+  /*margin-top: 20px;*/
+  position: absolute;
+  /*bottom: 10px;*/
+  left: 0px;
+  /*margin: 30px 30px 0px 30px;*/
+  /*padding: 0px 20px 0px 20px;*/
+}
+
+  div.navBar {
+    /*min-width: 440px;*/
+  }
+}
+
+
+
+  div.navBar {
+    min-width: 440px;
+  }
+ 
+}
+
+
+

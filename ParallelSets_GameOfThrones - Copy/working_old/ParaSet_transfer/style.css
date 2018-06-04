@@ -1,0 +1,767 @@
+/*-----------------------------------+
+ | Site: Landing Page Visualizations |
+ | Part: Master styles               |
+ +-----------------------------------*/
+
+/* Imports
+=====================================================================*/
+/*@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Droid+Serif:400,400italic,700,700italic);
+*//*@import "../styles/reset.css";*/
+
+
+/* Fonts
+======================================================================*/
+body, #credit { font-family: 'Roboto,300 light', sans-serif; }
+#header { font-family: 'Roboto,300 light', sans-serif;}
+
+body {margin: 0px;
+  width: 100%;
+  }
+/* Basics
+======================================================================*/
+
+nav#NIAM{
+  border-radius:0px !important;
+}
+
+
+/*a { color: #f85204; text-decoration: none; }*/
+a:hover { text-decoration: underline; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html{
+  width:100%;
+}
+
+
+ a:link, a:visited {
+ /*   color: #777;*/
+    text-decoration: none;
+}
+
+div.container-fluid ul.navbar-nav li a{
+  background-color: #222222 !important;
+/*  color: #222222 !important;*/
+}
+
+a:hover {
+    color: #666;
+}
+blockquote {
+    margin: 0;
+}
+blockquote:before {
+    content:"Ã¢â‚¬Å“";
+    position: absolute;
+    left: -.4em;
+}
+blockquote:after {
+    content:"Ã¢â‚¬Â";
+    position: absolute;
+}
+body > ul {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-size: 64px;
+}
+h1, h2, h3 {
+    font-weight: inherit;
+    margin: 0;
+}
+
+
+/*  ------ things above are for d3 dendro chart -----*/
+/*  ------ things below are for landing page only  #DEE5ED ----*/
+
+/*div.floatAboveLandingBox {
+  background-color: #1F3856;
+  width: 400px;
+  height: 160px;
+  position: absolute;
+  top: 44px;
+  right: 30px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 5px solid #B9C4DD;
+  color:white;
+}*/
+
+/*div.floatAboveLandingBox h2 {
+  text-align: center;
+  color: white;
+  font-family: 'Arimo', sans-serif;
+  font-size: 28px;
+
+}
+div.floatAboveLandingBox p {
+  color: white;
+  font-family: 'Droid+Sans+Mono', sans-serif;
+
+}*/
+
+div.not-loaded {
+  display: none;
+}
+
+
+
+
+/*div.banner {
+  width: 100%; 
+  height: auto; 
+  margin-left: -500px; 
+  margin-right: -500px; 
+  margin-top: -100px;
+  background-image: url("https://niam.nasa.gov/wp-content/uploads/2016/03/Background_MilkyWay_U2dark_v4.jpg");
+  background-repeat: no-repeat;
+}
+
+h2.headerHeadline {
+  margin-top: 10px; 
+  margin-bottom: 220px; 
+  color: white; 
+  text-align: center;
+  }
+
+*/
+
+
+
+
+
+
+div.navBar {
+  background-color: black;
+  height: 100px;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  /*position: absolute;*/
+  margin-top: 0px;
+}
+
+div.navBar p{
+  margin-top: 0px;
+  color: white;
+}
+
+
+
+div.flexBox {
+  width: 100%;
+  /*max-width: 1043px;*/
+  display: inline-flex;
+  /*margin-top: 0px;*/
+  flex-flow: space-around;
+  /* margin-bottom: -200px;*/
+  /*margin: 15px auto -38px auto;*/
+  flex-wrap: wrap;
+  /*margin-top: 20px;*/
+  position: absolute;
+  /*bottom: 10px;*/
+  left: 0px;
+  /*margin: 30px 30px 0px 30px;*/
+  /*padding: 0px 20px 0px 20px;*/
+}
+
+div.strengths {
+  /*flex-flow: space-around;*/
+  /*justify-content: space-around;*/
+  flex-basis: auto;
+  flex-grow: 1;
+  /*background-color: white;*/
+  background-color: #1a5dac !important;
+  width: 90px;
+  height: 30px;
+  margin-top: 5px;
+  line-height: 30px;
+  margin-left: 10px;
+  border: 2px solid #1a5dac;
+  border-radius: 3px;
+
+  /*position: absolute;*/
+  vertical-align: bottom;
+}
+div.strengths h3{
+  color: white;
+  font-size: 12px;
+  font-family:'Roboto', sans-serif;
+  font-weight: 500;
+  /*font-family:'OpenSansbold', sans-serif;
+  font-weight: 400;*/
+}
+
+div.strengthsBold {
+  background-color: #1a5dac !important;
+  color: white !important;
+  border: 2px solid #bbc0c9;
+  border-radius: 3px;
+  /*margin-top: 2px;*/
+
+}
+
+div.strengthsBold h3{
+  color: white !important;
+  font-weight: bold;
+}
+
+
+/*
+div.learnBox{
+  position: absolute;
+  vertical-align: bottom;
+  left: 50%;
+  margin-left: -75px;
+  background-color: white;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+
+}
+
+div.learnBox h3{
+  color: black;
+}*/
+
+
+
+div.lowerHalf {
+  /*background: #B9C4DD;*/
+  background: white;
+  width: 120%;
+  margin-left: -20px;
+  margin-right: -20px;
+  /*height: 800px;*/
+  text-align: center;
+  vertical-align: top;
+  position: relative;
+}
+
+div.imgSquare{
+  margin-bottom: 20px;
+}
+
+div.imgSquare img {
+  width: 292px;
+  height: 300px;
+}
+
+
+div.moveBox {
+  display: inline-block;
+ /* background-color: #1F3856;*/
+  background-color: black;
+/*  min-width: 200px;
+  max-width: 300x;*/
+  width: 300px;
+  height: 570px;
+  /*margin: auto 0px;*/
+  /*margin: 60px 20px 80px 20px;*/
+  /*border-radius: 2px;*/
+  vertical-align: top;
+  /*padding: 10px;*/
+  border: solid 4px #bbc0c9;
+}
+
+div.moveBoxHighlight {
+  border: solid 5px #5684ce !important;
+}
+
+
+
+div.labelHolder {
+  display: block;
+  margin-top: 5px;
+  padding: 0px 10px 0px 10px;
+}
+div.labelHolder h2.category{
+  display: inline;
+  color: #bbc0c9;
+  /*color: #a8bee0;*/
+  font-size: 18px;
+   /*font-family:'Roboto', sans-serif;*/
+/*  font-weight: 300;*/
+  
+}
+div.labelHolder h2.name{
+  display: inline;
+  color: white;
+  font-size: 16px;
+  /*font-family:'Roboto', sans-serif;
+  font-weight: 300;*/
+  
+}
+div.labelHolder p.name{
+  display: inline;
+  color: white;
+  font-size: 13px;
+   font-family:'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+
+
+@media (max-width: 6000px) {
+	 div.page {
+  }
+ h2.headerHeadline {
+  margin-bottom: 170px; 
+  }
+
+
+ div.backgroundBoxBlack {
+    /*min-width: 260px;
+    min-height: 160px;
+    position: relative;
+    top: 20%;
+    vertical-align: center;
+    padding: 7px;*/
+  }
+
+
+  div.floatAboveLandingBox2 {
+    position: absolute;
+   /* margin-top: 0px;
+    margin-bottom:10px;*/
+  /*  margin: auto 0px;*/
+    top: 200px;
+    left: 400px;
+    color: white;
+    margin: auto 0px;
+    text-align: center;
+    font-family: 'Roboto,300 light', sans-serif;
+
+  }
+
+  div.floatAboveLandingBox {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom:10px;
+    top: 10px;
+    height: 205px;
+  }
+
+
+  div.floatAboveLandingBox p.introSentence {
+  font-size: 16px;
+}
+ div.sentenceBoxOnTop p#Intro {
+    font-size: 16px;
+  }
+  div.strengths h3{
+  font-size: 12px;
+}
+  div.floatAboveLandingBox h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+  }
+   div.floatAboveLandingBox h3 {
+    /*font-family: 'Open+Sans,100light', sans-serif;*/
+   /* font-size: 25px;*/
+  }
+
+
+  div.floatAboveLandingBox p {
+    font-size: 17px;
+  }
+  div.backgroundBoxBlack {
+  /*  min-width: 260px;
+    min-height: 160px;
+    padding: 7px;
+    border-radius: 7px;
+    vertical-align: center;*/
+  }
+
+  div.upperHalf {
+    max-width: 500px;
+    min-width: 100%;
+    height: 500px;
+    margin-top: 0px;
+    /*position: relative;*/
+  }
+  div.upperHalf img {
+    /*max-width: 500px;*/
+    max-width: 100%;
+    min-width: 440px;
+    height: 500px;
+  }
+  div.lowerHalf {
+    max-width: 100%;
+    /*min-height: 2500px;*/
+  }
+  div.moveBox {
+    display: inline-block;
+    /*margin: 20px 10px 20px 10px;*/
+    margin: 20px 10px 20px 10px;
+    /*min-width: 300px;
+    max-width: 320px;*/
+    /*width: 300px;*/
+  }
+  div.navBar {
+    /*min-width: 440px;*/
+  }
+}
+
+
+
+@media (max-width: 2000px) {
+  div.page {
+  }
+ h2.headerHeadline {
+  margin-bottom: 170px; 
+  }
+
+
+ div.backgroundBoxBlack {
+    /*min-width: 260px;
+    min-height: 160px;
+    position: relative;
+    top: 20%;
+    vertical-align: center;
+    padding: 7px;*/
+  }
+
+
+  div.floatAboveLandingBox2 {
+    position: absolute;
+   /* margin-top: 0px;
+    margin-bottom:10px;*/
+  /*  margin: auto 0px;*/
+    top: 200px;
+    left: 400px;
+    color: white;
+    margin: auto 0px;
+    text-align: center;
+    font-family: 'Roboto,300 light', sans-serif;
+    min-height: 250px;
+
+  }
+
+  div.floatAboveLandingBox {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom:10px;
+    top: 10px;
+    height: 250px;
+  }
+
+
+  div.floatAboveLandingBox p.introSentence {
+  font-size: 16px;
+}
+ div.sentenceBoxOnTop p#Intro {
+    font-size: 16px;
+  }
+  div.strengths h3{
+  font-size: 12px;
+}
+  div.floatAboveLandingBox h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+  }
+   div.floatAboveLandingBox h3 {
+    /*font-family: 'Open+Sans,100light', sans-serif;*/
+   /* font-size: 25px;*/
+  }
+
+
+  div.floatAboveLandingBox p {
+    font-size: 17px;
+  }
+  div.backgroundBoxBlack {
+  /*  min-width: 260px;
+    min-height: 160px;
+    padding: 7px;
+    border-radius: 7px;
+    vertical-align: center;*/
+  }
+
+  div.upperHalf {
+    max-width: 500px;
+    min-width: 100%;
+    height: 500px;
+    margin-top: 0px;
+    /*position: relative;*/
+  }
+  div.upperHalf img {
+    /*max-width: 500px;*/
+    max-width: 100%;
+    min-width: 440px;
+    height: 500px;
+  }
+  div.lowerHalf {
+    max-width: 100%;
+    /*min-height: 2500px;*/
+  }
+  div.moveBox {
+    display: inline-block;
+    /*margin: 20px 10px 20px 10px;*/
+    margin: 20px 10px 20px 10px;
+    /*min-width: 300px;
+    max-width: 320px;*/
+    /*width: 300px;*/
+  }
+  div.navBar {
+    min-width: 440px;
+  }
+ 
+}
+
+@media (max-width: 1220px) {
+  div.floatAboveLandingBox div.sentenceBoxOnTop{
+  height: 130px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1050px) {
+  div.floatAboveLandingBox p#Intro{
+  font-size: 12px;
+  }
+/*  img#banner{
+    src: "https://niam.nasa.gov/wp-content/uploads/2016/03/Background_MilkyWay_U2dark_v4.jpg";
+    width="100%";
+    height="300px" 
+  }*/
+  div.banner {
+  /*width: 150%; 
+  height: 400px; 
+  margin-left: -200px; 
+  margin-right: -200px; 
+  margin-top: -100px;
+  background-image: url("https://niam.nasa.gov/wp-content/uploads/2016/03/Background_MilkyWay_U2dark_v4.jpg");
+  background-repeat: no-repeat;*/
+ 
+  } 
+  h2.headerHeadline { 
+  margin-bottom: 160px;  
+  }
+  
+}
+
+
+@media (max-width: 900px) {
+    div.strengths h3{
+    font-size: 5px;
+  }
+  div.floatAboveLandingBox p#Intro{
+  font-size: 12px;
+  /* min-height: 190px; */
+}
+
+h2.headerHeadline {
+  margin-bottom: 50px; 
+  }
+
+  div.backgroundBoxBlack {
+/*    min-width: 350px;
+    min-height: 220px;
+
+    vertical-align: center;
+    padding: 3px;
+
+   margin: 0 auto;
+   top: 150px;
+*/
+  }
+  div.flexBox {
+    margin-top: 2px;
+    margin-left: -5px;
+  }
+
+ div.floatAboveLandingBox {
+  min-height: 300px;
+
+ }
+   div.floatAboveLandingBox div.sentenceBoxOnTop{
+  height: 150px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  }
+    div.floatAboveLandingBox h1 {
+    font-size: 15px;
+  }
+  div.floatAboveLandingBox h3 {
+    font-size: 10px;
+  }
+
+  div.floatAboveLandingBox p {
+    font-size: 10px;
+  }
+
+
+  div.strengths h3{
+  font-size: 10px;
+
+}
+
+}
+
+
+@media (max-width: 700px) {
+    h2.headerHeadline { 
+  margin-bottom: 330px;  
+  }
+
+}
+@media (max-width: 500px) {
+   p#Intro {
+   min-height: 550px;
+   min-width:80%;
+ }
+   p.introSentence {
+   min-height: 450px;
+   min-width:80%;
+ }
+
+ div.floatAboveLandingBox{
+   min-height: 450px
+ }
+ div.floatAboveLandingBox div.sentenceBoxOnTop{
+   min-height: 280px;
+
+ }
+
+}
+/*
+@media (max-width: 550px) {
+ div.backgroundBoxBlack {
+   left: 80px;
+   top: 120px;
+  
+  }
+}
+
+@media (max-width: 450px) {
+ div.backgroundBoxBlack {
+   left: 40px;
+   top: 120px;
+  /* margin-top: 80px;*/
+  
+  }
+}
+
+/*@media (max-width: 400px) {
+ div.backgroundBoxBlack {
+   left: 20px;
+   top: 120px;
+  
+  }
+}*/
+/*
+@media (max-width: 700px) {
+  div.page {
+    margin: 0 auto;
+  }
+    div.backgroundBoxBlack {
+    min-width: 260px;
+    min-height: 160px;
+    top: 10px;
+    position: relative;
+    vertical-align: center;
+    margin: 0 auto;
+    padding: 7px;
+  }
+
+
+
+  div.floatAboveLandingBox {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 5px;
+    min-width: 260px;
+    min-height: 160px;
+    max-width: 100%;
+    padding: 7px;
+    
+  }
+  div.upperHalf {
+    max-width: 500px;
+    min-width: 100%;
+    height: 500px;
+    position: relative;
+  }
+  div.upperHalf img {
+    max-width: 100%;
+  }
+  div.lowerHalf {
+    max-width: 100%;
+    min-height: 2500px;
+  }
+  div.moveBox {
+    display: block;
+    margin: 20px 10px 20px 10px;
+    margin: 20px auto 20px auto;
+    min-width: 400px;
+    max-width: 450px;
+  }
+}
+*/
+/*
+@media (max-width: 600px) {
+
+
+  div.floatAboveLandingBox {
+ position: relative;
+    margin-left: 15%;
+    margin-right: 5px;
+    min-width: 260px;
+    min-height: 160px;
+    max-width: 300px;
+
+    
+  }
+  div.floatAboveLandingBox h1 {
+    font-family: 'Arimo', sans-serif;
+    font-size: 23px;
+  }
+  div.floatAboveLandingBox p {
+    font-size: 16px;
+  }
+
+  div.upperHalf {
+    max-width: 430px;
+    min-width: 100%;
+    height: 500px;
+    position: relative;
+  }
+  div.upperHalf img {
+    /*max-width: 500px;
+    max-width: 100%;
+  }
+  div.lowerHalf {
+    max-width: 100%;
+    min-height: 2500px;
+  }
+  div.moveBox {
+    display: block;
+    margin: 20px 10px 20px 10px;
+    margin: 20px auto 20px auto;
+    min-width: 150px;
+    max-width: 280px;
+  }
+}
+*/
+/*
+div.moveBox {
+  display: inline-block;
+  background-color: #B9C4DD;
+  min-width: 240px;
+  max-width: 400px;
+  height: 600px;
+
+  margin: 40px 20px 40px 20px;
+  border-radius: 5px;
+  vertical-align: top;
+  padding: 10px;
+}*/
+
+
+/*  ------ things above are for landing page only -----*/

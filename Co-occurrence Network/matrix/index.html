@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game of Thrones: Co-occurrence</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Game of Thrones: Co-Occurrence">
+    <meta name="keywords" content="Game of Thrones, data visualization, Stark, Baratheon, Lannister, Targaryen, John Snow, Tyrion Lannister, Daenerys Targaryen">
+    <meta name="author" content="Jeffrey Lancaster">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="matrix.css"/>
+    <script src="//d3js.org/d3.v2.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+  <!-- <body background="../img/1 - Copy (4).jpg" > -->
+
+    <header>
+      <h1>
+        <img src="../img/GoT_logo.png">
+        <span> - Co-Occurrence</span>
+      </h1>
+    </header>
+
+    <!-- description of the radio buttons to change sorting order -->
+    <div id="description"> 
+        <form id = "sort-by">
+            Order By:
+            <input type="radio" id="r1" name="sort-by" value="name" />
+            <label for="r1"><span></span>Name</label>
+
+            <input type="radio" id="r2" name="sort-by" value="count" />
+            <label for="r2"><span></span>Frequency</label>
+
+            <input type="radio" id="r3" name="sort-by" value="house" />
+            <label for="r3"><span></span>House</label>
+        </form>
+    </div>
+    
+    <svg></svg>
+
+    <script src="matrix.js"></script>
+
+  </body>
+</html>

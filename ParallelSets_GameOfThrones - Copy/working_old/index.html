@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<!-- Need to debug why tooltip in parallel sets doesn't work!!!!! -->
+<!-- Need to clean up text and design -->
+<head>
+  <meta charset="utf-8">
+  <title>Parallel Sets Example using Game of Thrones Battles</title>
+
+  <link rel="stylesheet" type="text/css" href="ParaSet_transfer/paraset_inline.css" />
+  <link rel="stylesheet" type="text/css" href="ParaSet_transfer/d3.parsets.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
+  <!--  Remember to change the location of the two CSS links below and check for others in chort -->
+  <!-- <link rel="stylesheet" href="HC_chord_1/bower_components/foundation/css/foundation.css" /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="HC_chord_1/css/app.css" /> -->
+
+  <link rel="stylesheet" id="options_typography_Roboto-300-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
+   <link rel="stylesheet" id="options_typography_Roboto-700-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+ <!--  <script src="HC_chord_1/bower_components/modernizr/modernizr.js"></script>
+  <script src="HC_chord_1/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="HC_chord_1/bower_components/angular/angular.min.js"></script> -->
+</head>
+
+<body>
+<div id="body2">
+<h1 >Parallel Sets Data Visualization</h1>
+<p class="text-center">by Justin Gosses</p>
+<!-- <h3>Parallel Sets and Chord Visualization</h3> -->
+<h5 class="text-center">Interactive visualisation technique for multidimensional categorical data.</h5>
+
+<h2>Game of Thrones Battles <small>(298-300)</small></h2>
+<div class="center">
+  <!-- <div class="rebuild"><ul class="rebuild"><li><a href="#" class="rebuild">rebuild</a></li></ul></div> -->
+  <button class="rebuild button">Rebuild Visualization</button>
+  <div class="center inline dropdown">
+    <ul id="drop-nav" class="">
+    <!--   <li><a href="#">Support</a></li> -->
+      <li><a href="#" class="Select_Datasets">Select Categories</a>
+        <ul id="dimensions_list">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+
+<div id="vis" class=""><noscript><img src="parsets.png"></noscript></div>
+<div class="options">
+  <span class="curves"><label for="curved"><input type="checkbox" id="curved" onchange="curves.call(this)"> Curves?</label></span>
+  <span class="curves"><label for="curved"><input type="checkbox" id="curved"> Curves?</label></span>
+</div>
+<div>
+  <p class="meta marginLeft">
+    <b>Please explore the data!</b> Category labels can be moved vertically and sub-labels moved horizontally to better see relationships. Using the drop-down menu buttons on top allows you to select what data types are included to help you focus on specific relationships and explore the data.
+  <p class="meta marginLeft">
+    The band width as well as numbers and % in the tooltips (hover over a band to see them) are based on the numbers of battles that meet each category.
+  </p>
+</div>
+</br>
+    <div>
+      <div>
+        <h4 class="closeMargBot">Code</h4>
+        <p class="closeMargTop">
+          This a draft version. If you find any bugs or areas for improvement, please submit a pull request on the github <a href="https://github.com/JustinGOSSES/ParallelSets_GameOfThrones">repo</a>.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="closeMargBot">
+          Inspiration
+        </h4>
+        <p class="closeMargTop">
+          This visualization is based heavily on <a href="https://github.com/jasondavies/d3-parsets" target="blank">Jason Davies</a> d3-parasets project. You can find a longer discussion on add-ons I want to build into this d3.js parallel sets project at this blog post. One improvement I added was the ability of the user to select which data categories or dimensions are shown. Additionally, the user can limit the visualizaion to only battles where a specific value in a specific category is present. For example, only the battles where the defender was the House Stark.
+        </p>
+      </div>
+      <div>
+        <h4 class="closeMargBot">How to use</h4>
+        <p class="closeMargTop">
+          This was devised as a data exploration tool. It helps to think of specific questions when using the parallel sets visualizations. One example is who won when Stark was the attacker and Lannister was the defender, plus when and where did these battles occur? Another is 
+        </p>
+      </div>
+      <div>
+        <h4 class="closeMargBot">Data</h4>
+        <p class="closeMargTop">
+          The dataset for this visualization comes from <a href="https://www.kaggle.com" target="blank">Kaggle</a>, a data science  website geared to competition and community. Please check the original <a href="https://www.kaggle.com/mylesoneill/game-of-thrones" target="blank">data source</a> to see if there are any updates as the Game of Thrones story progresses. You can also download the lightly edited version I used <a href="ParaSet_transfer/GOT_battles.csv">here</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  </br>
+  </div>
+  <script src="ParaSet_transfer/d3.min.js"></script>
+  <script src="ParaSet_transfer/d3.parsets.js"></script>
+  <script src="ParaSet_transfer/highlight.min.js"></script>
+  <script src="ParaSet_transfer/paraset_inlineScript.js"></script>
+
+
+</body>
+</html>

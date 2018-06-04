@@ -6,19 +6,24 @@
   
   <link rel="stylesheet" type="text/css" href="Styles/paraset_addOn.css" />
   <link rel="stylesheet" type="text/css" href="Styles/d3.parsets.css" />
-  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" /> -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
   <link rel="stylesheet" type="text/css" href="Styles/style.css">
-  <!-- <link rel="stylesheet" id="options_typography_Roboto-300-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all"> -->
-  <!-- <link rel="stylesheet" id="options_typography_Roboto-700-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all"> -->
+  <link rel="stylesheet" id="options_typography_Roboto-300-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
+  <link rel="stylesheet" id="options_typography_Roboto-700-css" href="https://fonts.googleapis.com/css?family=Roboto:300" type="text/css" media="all">
   <script   src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-  <!-- <link rel="stylesheet" type="text/css" href="Styles/bootstrap_onlyWhatNeeded.css" /> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"> -->
+    
+   <!--  The stylesheet below, "bootstrap_onlyWhatNeeded.css" is a subset of the commented out link above which was conflicting with d3.js, especially in terms of tooltip name space.  -->
+   <link rel="stylesheet" type="text/css" href="Styles/bootstrap_onlyWhatNeeded.css" />
 </head>
 
 <body>
 <!-- <div class="container-fluid"> -->
-<!--  <nav id="NIAM" class="navbar navbar-inverse">
+<nav id="NIAM" class="navbar navbar-inverse">
   <div class="container-fluid">
       <ul id="float_menu_right" class="nav navbar-nav navbar-right">
+        <!-- <li ><a href="#"><img height="100px", width="200px" src="images/NIAM_Logo.png"></a></li> -->
         <li><a href="http://justingosses.com/">Home</a></li>
         <li><a href="http://justingosses.com/maps/">Maps</a></li> 
         <li><a href="http://justingosses.com/code/">Code</a></li>
@@ -28,21 +33,15 @@
         <li><a href="http://justingosses.com/resume/">Resume</a></li> 
       </ul>
     </div>
-</nav>  -->
-
-  <!-- <script src="js/bootstrap.js"></script> -->
-  <script src="js/d3.min.js"></script>
-  <script src="js/d3.parsets.js"></script>
-  <!-- <script src="js/highlight.min.js"></script> -->
-  <script src="js/d3.parsets.userFilt.js"></script>
+</nav>
 
 <!-- Everything is inside of this body2 div to separate the nav menu on top from the rest of the data visualization -->
 <div id="body2">
 <!--  header area -->
-  <!-- <h1 >Parallel Sets Data Visualization</h1> -->
-  <!-- <p class="text-center">by Justin Gosses</p> -->
-  <!-- <h5 class="text-center">Interactive visualisation technique for multidimensional categorical data.</h5> -->
-  <!-- <h2>Game of Thrones Battles <small>(298-300)</small></h2>  -->
+  <h1 >Parallel Sets Data Visualization</h1>
+  <p class="text-center">by Justin Gosses</p>
+  <h5 class="text-center">Interactive visualisation technique for multidimensional categorical data.</h5>
+  <h2>Game of Thrones Battles <small>(298-300)</small></h2> 
 <!--   drop down buttons menu -->
   <div class="center margin_top_above_menus">
     <button class="rebuild button">Rebuild Visualization</button>
@@ -77,8 +76,8 @@
     <p class="meta marginLeft">
       Hovering over the ribbons will bring up tooltip showing the absolute and % numbers associated with each ribbon. 
     </p>
-<!--    </div>
-  this is a separate explanation area of text below the main SVG
+  </div>
+  <!-- this is a separate explanation area of text below the main SVG -->
   </br>
   <hr>
       <div>
@@ -114,17 +113,23 @@
             or read more about it in this <a href="http://justingosses.com/game-of-thrones-parallel-sets-data-visualization/">blog</a> post.  
           </p>
         </div>
-        message for developers.. especially those who know a good cat video dataset for this data visualization
-        <div>
+       <!--  message for developers.. especially those who know a good cat video dataset for this data visualization -->
+       <!--  <div>
           <h3 class="closeMargBot">Why use Game of Thrones data?</h3>
           <p class="closeMargTop">
             Admittedly, this dataset probably isn't the best for showing what can be done with parallel sets data visualizations. At the time however, I was shamelessly looking for a dataset non-data viz people would click on. Ten minutes of googling didn't produce a categorical flat dataset on the many different types of cat videos, so you get Game of Thrones battles. If you find said cat videos dataset, let <a href="mailto:justin@justingosses.com?Subject=IFoundAmazingCatVideodataset" target="_top">me</a> know. 
           </p>
-        </div>
+        </div> -->
       </div>
-    </div> -->
+    </div>  
     </br>
 </div>  <!-- //ends div id="body2" -->
+  <script src="js/bootstrap.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/d3.parsets.js"></script>
+  <script src="js/highlight.min.js"></script>
+  <script src="js/d3.parsets.userFilt.js"></script>
+
 
 </body>
 </html>
