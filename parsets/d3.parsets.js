@@ -1,5 +1,6 @@
 // Parallel Sets by Jason Davies, http://www.jasondavies.com/
 // Functionality based on http://eagereyes.org/parallel-sets
+// some modifications by Justin Gosses www.justingosses.com
 (function() {
   d3.parsets = function() {
     var event = d3.dispatch("sortDimensions", "sortCategories"),
@@ -408,20 +409,23 @@
       return parsets;
     };
 
-    parsets.tooltip = function(_) {
-      if (!arguments.length) return tooltip;
+    parsets.tooltip2 = function(_) {
+      // console.log("I am hitting = parsets.tooltip, and _ is", _)
+      if (!arguments.length) return tooltip2;
       tooltip_ = _ == null ? defaultTooltip : _;
       return parsets;
     };
 
     parsets.categoryTooltip = function(_) {
+      // console.log("I am hitting = parsets.categoryTooltip, and _ is", _)
       if (!arguments.length) return categoryTooltip;
       categoryTooltip = _ == null ? defaultCategoryTooltip : _;
       return parsets;
     };
 
     var body = d3.select("body");
-    var tooltip = body.append("div")
+    //var body = d3.select("div#vis")
+    var tooltip2 = body.append("div")
         .style("display", "none")
         .attr("class", "parsets tooltip");
 
@@ -433,15 +437,18 @@
 
     function showTooltip(html) {
       var m = d3.mouse(body.node());
-      tooltip
+      //var m = d3.mouse(d3.event.target);
+      // console.log("mm tool tip trying to work here", m)
+      tooltip2
           .style("display", null)
           .style("left", m[0] + 30 + "px")
           .style("top", m[1] - 20 + "px")
           .html(html);
+      // console.log("mm tool tip trying to work here 22", m, html)
     }
 
     function hideTooltip() {
-      tooltip.style("display", "none");
+      tooltip2.style("display", "none");
     }
 
     function transition(g) {
@@ -648,16 +655,19 @@
   function translateY(d) { return "translate(0," + d.y + ")"; }
 
   function defaultTooltip(d) {
+    // console.log("hit function defaultTooltip(d) ")
     var count = d.count,
         path = [];
     while (d.parent) {
       if (d.name) path.unshift(d.name);
       d = d.parent;
     }
+    //return "hi bob, wait! you're not Fred!"
     return path.join(" → ") + "<br>" + comma(count) + " (" + percent(count / d.count) + ")";
   }
 
   function defaultCategoryTooltip(d) {
+    //return "hi bob, wait! you're not Bob!"
     return d.name + "<br>" + comma(d.count) + " (" + percent(d.count / d.dimension.count) + ")";
   }
 })();
