@@ -30,7 +30,7 @@ var svg = d3.select("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("../data/main_final.json", function(main_json) {
+d3.json("../../data/matrix/main_final.json", function(main_json) {
 
     // create a matrix to store the character-character number of occurrences
     // row and columns represents characters and the entries in the matrix will

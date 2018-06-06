@@ -1,16 +1,3 @@
-/* Background Image*/
-.bg{
-       /* The image used */
-       background-image: "../img/1.jpg";
-       /*background-image: url("{{ url_for('static',filename='images/lalaland.jpg') }}");*/
-       /* Full height */
-       height: 100%;
-       /* Center and scale the image nicely */
-       background-position: center;
-       background-repeat: no-repeat;
-       background-size: cover;
-}
-
 body {
     font-family: "Helvetica Neue";
     position:relative;
@@ -31,12 +18,12 @@ input[type="radio"] + label span {
     height:19px;
     margin:-2px 1px 0 0;
     vertical-align:middle;
-    background:url("../img/check_radio_sheet - Copy - Copy.png") -38px top no-repeat;
+    background:url("../../img/matrix/check_radio_sheet - Copy - Copy.png") -38px top no-repeat;
     cursor:pointer;
 }
 
 input[type="radio"]:checked + label span {
-    background:url("../img/check_radio_sheet - Copy - Copy.png") -57px top no-repeat;
+    background:url("../../img/matrix/check_radio_sheet - Copy - Copy.png") -57px top no-repeat;
 }
 
 header{
