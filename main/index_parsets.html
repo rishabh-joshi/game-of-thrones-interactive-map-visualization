@@ -8,26 +8,15 @@
 </head>
 
 <body>
-<h1>Game of Thrones</h1>
-
-<h2>Parallel Sets Viz</h2>
+    <header>
+        <img src="img/matrix/parsets_title.jpg">
+        <br><br>
+    </header>
+        <audio autoplay="true" src="gotbgmusic1.mp3" controls loop>
+    </audio>
 
 <!-- add class p-switch -->
 <form id = "oForm" onchange="rebuild()">
-
-    <div class="pretty p-switch p-fill">
-        <input type="checkbox" name = "AttackerKing" id="chk_AttackerKing"/>
-        <div class="state">
-            <label for='chk_AttackerKing'>Attacker King</label>
-        </div>
-    </div>
-
-    <div class="pretty p-switch p-fill">
-        <input type="checkbox" name = "DefenderKing" id="chk_DefenderKing"/>
-        <div class="state">
-            <label for='chk_DefenderKing'>Defender King</label>
-        </div>
-    </div>
 
     <div class="pretty p-switch p-fill">
         <input type="checkbox" name = "AttackerHouse" id="chk_AttackerHouse" checked/>
@@ -40,6 +29,20 @@
         <input type="checkbox" name = "DefenderHouse" id="chk_DefenderHouse" checked/>
         <div class="state">
             <label for='chk_DefenderHouse'>Defender House</label>
+        </div>
+    </div>
+    
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerKing" id="chk_AttackerKing"/>
+        <div class="state">
+            <label for='chk_AttackerKing'>Attacker King</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "DefenderKing" id="chk_DefenderKing"/>
+        <div class="state">
+            <label for='chk_DefenderKing'>Defender King</label>
         </div>
     </div>
 

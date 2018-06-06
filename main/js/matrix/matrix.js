@@ -1,7 +1,7 @@
 // set the margins for the canvas
-var margin = {top: 120, right: 60, bottom: 60, left: 120},
-    width = 1000, // for main characters in main.json
-    height = 1000; // for main characters in main.json
+var margin = {top: 120, right: 60, bottom: 60, left: 100},
+    width = 700, // for main characters in main.json
+    height = 700; // for main characters in main.json
 
 var x = d3.scale.ordinal().rangeBands([0, width]),
   z = d3.scale.linear().domain([0, 1500]).clamp(true),
@@ -16,17 +16,16 @@ var x = d3.scale.ordinal().rangeBands([0, width]),
       "#E32017",  // The Dothraki
       "#003688",  // The Greyjoy
       "#00782A",  // The Tyrells
-      "#95CDBA",  // The Wildlings
       "#ff8c00",  // The Martells
-      "#00A4A7",  // The Freys
+      "#F3A9BB",  // The Freys
       "#0098D4",  // The Tullies
-      "#F3A9BB"   // Extra Characters
+      "#95CDBA",  // The Wildlings    
       ]);
 
 var svg = d3.select("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .style("margin-left", -margin.left + "px")
+    .style("margin-left", margin.left + "px")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

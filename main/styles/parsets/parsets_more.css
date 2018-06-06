@@ -5,6 +5,11 @@ body {
   margin: 1em auto;
   position: relative;
 }
+audio {
+
+  display:none;
+
+}
 h1, h2, .dimension text {
   text-align: center;
   font-family: "PT Sans", Helvetica;

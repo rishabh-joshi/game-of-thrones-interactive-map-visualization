@@ -15,7 +15,18 @@
 .ribbon path.active { fill-opacity: .9; }
 .ribbon-mouse path { fill-opacity: 0; }
 
-.category-0 { fill: #1f77b4; stroke: #1f77b4; }
+.category-0 { fill: #fffa1c; stroke: #fffa1c; }
+.category-1 { fill: #3b4960; stroke: #3b4960; }
+.category-2 { fill: #003688; stroke: #003688; }
+.category-3 { fill: #871212; stroke: #871212; }
+.category-4 { fill: #9b5f00; stroke: #9b5f00; }
+.category-5 { fill: #00782A; stroke: #00782A; }
+.category-6 { fill: #F3A9BB; stroke: #F3A9BB; }
+.category-7 { fill: #95CDBA; stroke: #95CDBA; }
+.category-8 { fill: #E32017; stroke: #E32017; }
+.category-9 { fill: #ff8c00; stroke: #ff8c00; }
+
+/*.category-0 { fill: #1f77b4; stroke: #1f77b4; }
 .category-1 { fill: #ff7f0e; stroke: #ff7f0e; }
 .category-2 { fill: #2ca02c; stroke: #2ca02c; }
 .category-3 { fill: #d62728; stroke: #d62728; }
@@ -24,7 +35,7 @@
 .category-6 { fill: #e377c2; stroke: #e377c2; }
 .category-7 { fill: #7f7f7f; stroke: #7f7f7f; }
 .category-8 { fill: #bcbd22; stroke: #bcbd22; }
-.category-9 { fill: #17becf; stroke: #17becf; }
+.category-9 { fill: #17becf; stroke: #17becf; }*/
 
 .tooltip {
   background-color: rgba(242, 242, 242, .6);

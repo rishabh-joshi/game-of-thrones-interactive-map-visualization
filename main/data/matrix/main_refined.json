@@ -169,30 +169,6 @@
 			"house": 8
 		},
 		{
-			"name": "Craster",
-			"house": 9
-		},
-		{
-			"name": "Gilly",
-			"house": 9
-		},
-		{
-			"name": "Mance Rayder",
-			"house": 9
-		},
-		{
-			"name": "Osha",
-			"house": 9
-		},
-		{
-			"name": "Tormund Giantsbane",
-			"house": 9
-		},
-		{
-			"name": "Ygritte",
-			"house": 9
-		},
-		{
 			"name": "Doran Martell",
 			"house": 10
 		},
@@ -241,14 +217,6 @@
 			"house": 12
 		},
 		{
-			"name": "Barristan Selmy",
-			"house": 14
-		},
-		{
-			"name": "Beric Dondarrion",
-			"house": 14
-		},
-		{
 			"name": "Brienne of Tarth",
 			"house": 14
 		},
@@ -257,27 +225,11 @@
 			"house": 14
 		},
 		{
-			"name": "Daario Naharis",
-			"house": 14
-		},
-		{
 			"name": "Davos Seaworth",
 			"house": 14
 		},
 		{
-			"name": "Gendry",
-			"house": 14
-		},
-		{
-			"name": "Grand Maester Pycelle",
-			"house": 14
-		},
-		{
 			"name": "Gregor Clegane",
-			"house": 14
-		},
-		{
-			"name": "Grey Worm",
 			"house": 14
 		},
 		{
@@ -297,19 +249,7 @@
 			"house": 14
 		},
 		{
-			"name": "Lyanna Mormont",
-			"house": 14
-		},
-		{
-			"name": "Lysa Arryn",
-			"house": 14
-		},
-		{
 			"name": "Melisandre",
-			"house": 14
-		},
-		{
-			"name": "Missandei",
 			"house": 14
 		},
 		{
@@ -317,19 +257,7 @@
 			"house": 14
 		},
 		{
-			"name": "Podrick Payne",
-			"house": 14
-		},
-		{
-			"name": "Qyburn",
-			"house": 14
-		},
-		{
 			"name": "Ramsay Snow",
-			"house": 14
-		},
-		{
-			"name": "Roose Bolton",
 			"house": 14
 		},
 		{

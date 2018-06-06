@@ -13,27 +13,31 @@
     <script src="//d3js.org/d3.v2.min.js" charset="utf-8"></script>
   </head>
   <!-- <body> -->
-  <body background="img/matrix/P2.jpg" >
+  <body background="img/matrix/gotPicture6.png" >
+
+    <audio autoplay="true" src="gotbgmusic1.mp3" controls loop>
+    </audio>
 
     <header>
       <h1>
-        <img src="img/matrix/GoT_logo.png">
-        <span> - Co-Occurrence</span>
+        <!-- <img src="img/matrix/GoT_logo.png"> -->
+        <span> </span>
+        <br><br>
       </h1>
     </header>
 
     <!-- description of the radio buttons to change sorting order -->
-    <div id="description"> 
+    <div id="description"  style="margin-left:550px; width:100%;" > 
         <form id = "sort-by">
-            Order By:
+            <b>Order By:</b>
             <input type="radio" id="r1" name="sort-by" value="name" />
-            <label for="r1"><span></span>Name</label>
+            <label for="r1"><span></span><b>Name</b></label>
 
             <input type="radio" id="r2" name="sort-by" value="count" />
-            <label for="r2"><span></span>Frequency</label>
+            <label for="r2"><span></span><b>Frequency</b></label>
 
             <input type="radio" id="r3" name="sort-by" value="house" />
-            <label for="r3"><span></span>House</label>
+            <label for="r3"><span></span><b>House</b></label>
         </form>
     </div>
     

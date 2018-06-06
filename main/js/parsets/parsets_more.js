@@ -1,4 +1,4 @@
-main = function(fields, viz) {
+main = function(fields) {
     
     var chart = d3.parsets()
         .dimensions(fields);
@@ -210,10 +210,10 @@ function rebuild() {
     oCheckBox_Season = oForm.elements["Season"];
     oCheckBox_Region = oForm.elements["Region"];
     fields = []
-    fields = testCheckbox(oCheckBox_AttackerKing, fields)
-    fields = testCheckbox(oCheckBox_DefenderKing, fields)
     fields = testCheckbox(oCheckBox_AttackerHouse, fields)
     fields = testCheckbox(oCheckBox_DefenderHouse, fields)
+    fields = testCheckbox(oCheckBox_AttackerKing, fields)
+    fields = testCheckbox(oCheckBox_DefenderKing, fields)
     fields = testCheckbox(oCheckBox_AttackerOutcome, fields)
     fields = testCheckbox(oCheckBox_BattleType, fields)
     fields = testCheckbox(oCheckBox_MajorDeath, fields)
@@ -222,5 +222,5 @@ function rebuild() {
     fields = testCheckbox(oCheckBox_DefenderSize, fields)
     fields = testCheckbox(oCheckBox_Season, fields)
     fields = testCheckbox(oCheckBox_Region, fields)
-    main(fields, vis);
+    main(fields);
 }

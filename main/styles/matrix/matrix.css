@@ -3,6 +3,12 @@ body {
     position:relative;
 }
 
+audio {
+
+  display:none;
+
+}
+
 input[type="radio"] {
     display:none;
 }
@@ -10,6 +16,7 @@ input[type="radio"] {
 input[type="radio"] + label {
     color:#000000;
     font-family:"Helvetica Neue";
+    /*font-family:"leto";*/
 }
 
 input[type="radio"] + label span {
@@ -18,12 +25,12 @@ input[type="radio"] + label span {
     height:19px;
     margin:-2px 1px 0 0;
     vertical-align:middle;
-    background:url("../../img/matrix/check_radio_sheet - Copy - Copy.png") -38px top no-repeat;
+    background:url("../../img/matrix/check_radio_sheet - Copy.png") -38px top no-repeat;
     cursor:pointer;
 }
 
 input[type="radio"]:checked + label span {
-    background:url("../../img/matrix/check_radio_sheet - Copy - Copy.png") -57px top no-repeat;
+    background:url("../../img/matrix/check_radio_sheet - Copy.png") -57px top no-repeat;
 }
 
 header{
