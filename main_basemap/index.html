@@ -37,9 +37,13 @@
             fillOpacity: 0.65,
             fillColor: #2262CC;
         }
-        #arya {
-            color: red;
-        }
+        .myCSSClass {
+                background: white;
+                border: 2px solid black;}
+        .leaflet-tooltip-left.myCSSClass::before {
+                border-left-color: black;}
+        .leaflet-tooltip-right.myCSSClass::before {border-right-color: black;}
+
         .map { height: 100% }
     </style>
 </head>
@@ -481,7 +485,6 @@
             checks[8].onclick = function() { charlayers[2].snakeIn(); };
             checks[9].onclick = function() { charlayers[3].snakeIn(); };
             checks[10].onclick = function() { charlayers[4].snakeIn(); };
-            checks[6].id = arya;
         };
 
         function mapFixer() {
@@ -504,6 +507,7 @@
              };
 
         };
+
         snakeActivate();
 
 
