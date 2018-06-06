@@ -1,85 +1,118 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Parallel Sets</title>
-<style>
-@import url(d3.parsets.css);
-
-body {
-  font-family: sans-serif;
-  font-size: 16px;
-  width: 960px;
-  margin: 1em auto;
-  position: relative;
-}
-h1, h2, .dimension text {
-  text-align: center;
-  font-family: "PT Sans", Helvetica;
-  font-weight: 300;
-}
-h1 {
-  font-size: 4em;
-  margin: .5em 0 0 0;
-}
-h2 {
-  font-size: 2em;
-  margin: 1em 0 0.5em;
-  border-bottom: solid #ccc 1px;
-}
-p.meta, p.footer {
-  font-size: 13px;
-  color: #333;
-}
-p.meta {
-  text-align: center;
-}
-
-text.icicle { pointer-events: none; }
-
-.options { font-size: 12px; text-align: center; padding: 5px 0; }
-.curves { float: left; }
-.source { float: right; }
-pre, code { font-family: "Menlo", monospace; }
-
-.html .value,
-.javascript .string,
-.javascript .regexp {
-  color: #756bb1;
-}
-
-.html .tag,
-.css .tag,
-.javascript .keyword {
-  color: #3182bd;
-}
-
-.comment {
-  color: #636363;
-}
-
-.html .doctype,
-.javascript .number {
-  color: #31a354;
-}
-
-.html .attribute,
-.css .attribute,
-.javascript .class,
-.javascript .special {
-  color: #e6550d;
-}
-</style>
+<head>
+    <title>Parallel Sets</title>
+    <link rel="stylesheet" type="text/css" href="styles/parsets/pretty-checkbox.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/parsets/d3.parsets.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/parsets/parsets_more.css"/>
+</head>
 
 <body>
-<h1>Game of Thrones Parallel Sets</h1>
-<p class="meta">A visualisation technique for multidimensional categorical data.
+<h1>Game of Thrones</h1>
 
-<h2>Titanic Survivors</h2>
+<h2>Parallel Sets Viz</h2>
+
+<!-- add class p-switch -->
+<form id = "oForm" onchange="rebuild()">
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerKing" id="chk_AttackerKing"/>
+        <div class="state">
+            <label for='chk_AttackerKing'>Attacker King</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "DefenderKing" id="chk_DefenderKing"/>
+        <div class="state">
+            <label for='chk_DefenderKing'>Defender King</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerHouse" id="chk_AttackerHouse" checked/>
+        <div class="state">
+            <label for='chk_AttackerHouse'>Attacker House</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "DefenderHouse" id="chk_DefenderHouse" checked/>
+        <div class="state">
+            <label for='chk_DefenderHouse'>Defender House</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerOutcome" id="chk_AttackerOutcome" checked/>
+        <div class="state">
+            <label for='chk_AttackerOutcome'>Attacker Outcome</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "BattleType" id="chk_BattleType"/>
+        <div class="state">
+            <label for='chk_BattleType'>Battle Type</label>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "MajorDeath" id="chk_MajorDeath"/>
+        <div class="state">
+            <label for='chk_MajorDeath'>Major Death</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "MajorCapture" id="chk_MajorCapture"/>
+        <div class="state">
+            <label for='chk_MajorCapture'>Major Capture</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerSize" id="chk_AttackerSize"/>
+        <div class="state">
+            <label for='chk_AttackerSize'>Attacker Army Size</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "DefenderSize" id="chk_DefenderSize"/>
+        <div class="state">
+            <label for='chk_DefenderSize'>Defender Army Size</label>
+        </div>
+    </div>
+
+    <!-- <br><br> -->
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "Season" id="chk_Season"/>
+        <div class="state">
+            <label for='chk_Season'>Season</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "Region" id="chk_Region"/>
+        <div class="state">
+            <label for='chk_Region'>Region</label>
+        </div>
+    </div>
+
+</form>
+
+<br>
 <div id="vis"><noscript><img src="parsets.png"></noscript></div>
-<div class="options">
-    <span class="curves"><label for="curved"><input type="checkbox" id="curved" onchange="curves.call(this)"> Curves?</label></span>
-</div>
 
-<h2>Explanation</h2>
+<!-- <div class="options">
+    <span class="curves"><label for="curved"><input type="checkbox" id="curved" onchange="curves.call(this)"> Curves?</label></span>
+</div> -->
+
+<!-- <h2>Explanation</h2>
 <p>For each dimension (Survived, Sex, Age and Class), a horizontal bar is shown for each of its possible categories.  The width of the bar denotes the absolute number of matches for that category.
 <p>Starting with the first dimension (Survived), each of its categories is connected to a number of categories in the next dimension, showing how that category is subdivided. This subdividing is repeated recursively, producing a tree of “ribbons”.
 <p>In fact, you can imagine Parallel Sets as being an icicle plot, with icicles of the same category being “bundled” together.
@@ -130,202 +163,9 @@ d3.csv("titanic.csv", function(error, csv) {
   <li><a href="http://kosara.net/publications/Bendix_InfoVis_2005.html">Parallel Sets: Visual Analysis of Categorical Data</a> by Fabian Bendix, Robert Kosara, Helwig Hauser.
 </ul>
 
-<p class="footer">Made by <a href="http://www.jasondavies.com/">Jason Davies</a>.  Thanks to <a href="http://bost.ocks.org/mike">Mike Bostock</a> for his suggestions (and of course, <a href="http://d3js.org/">D3.js</a>!)
+<p class="footer">Made by <a href="http://www.jasondavies.com/">Jason Davies</a>.  Thanks to <a href="http://bost.ocks.org/mike">Mike Bostock</a> for his suggestions (and of course, <a href="http://d3js.org/">D3.js</a>!) -->
 
-<script src="../d3.min.js"></script>
-<script src="d3.parsets.js"></script>
-<script src="highlight.min.js"></script>
-<script>
-    
-    main = function(fields, viz) {
-        var chart = d3.parsets()
-            .dimensions(fields);
-        d3.select("#the_SVG_ID").remove();
-        var vis = d3.select("#vis").append("svg")
-            .attr("id","the_SVG_ID")
-            .attr("width", chart.width())
-            .attr("height", chart.height());
-    
-        var partition = d3.layout.partition()
-            .sort(null)
-            .size([chart.width(), chart.height() * 5 / 4])
-            .children(function(d) { return d.children ? d3.values(d.children) : null; })
-            .value(function(d) { return d.count; });
-    
-        var ice = false;
-    
-        function curves() {
-          var t = vis.transition().duration(500);
-          if (ice) {
-            t.delay(1000);
-            icicle();
-          }
-          t.call(chart.tension(this.checked ? .5 : 1));
-        }
-    
-        d3.csv("GOT_battles.csv", function(error, csv) {
-          vis.datum(csv).call(chart);
-    
-          window.icicle = function() {
-            var newIce = this.checked,
-                tension = chart.tension();
-            if (newIce === ice) return;
-            if (ice = newIce) {
-              var dimensions = [];
-              vis.selectAll("g.dimension")
-                 .each(function(d) { dimensions.push(d); });
-              dimensions.sort(function(a, b) { return a.y - b.y; });
-              var root = d3.parsets.tree({children: {}}, csv, dimensions.map(function(d) { return d.name; }), function() { return 1; }),
-                  nodes = partition(root),
-                  nodesByPath = {};
-              nodes.forEach(function(d) {
-                var path = d.data.name,
-                    p = d;
-                while ((p = p.parent) && p.data.name) {
-                  path = p.data.name + "\0" + path;
-                }
-                if (path) nodesByPath[path] = d;
-              });
-              var data = [];
-              vis.on("mousedown.icicle", stopClick, true)
-                .select(".ribbon").selectAll("path")
-                  .each(function(d) {
-                    var node = nodesByPath[d.path],
-                        s = d.source,
-                        t = d.target;
-                    s.node.x0 = t.node.x0 = 0;
-                    s.x0 = t.x0 = node.x;
-                    s.dx0 = s.dx;
-                    t.dx0 = t.dx;
-                    s.dx = t.dx = node.dx;
-                    data.push(d);
-                  });
-              iceTransition(vis.selectAll("path"))
-                  .attr("d", function(d) {
-                    var s = d.source,
-                        t = d.target;
-                    return ribbonPath(s, t, tension);
-                  })
-                  .style("stroke-opacity", 1);
-              iceTransition(vis.selectAll("text.icicle")
-                  .data(data)
-                .enter().append("text")
-                  .attr("class", "icicle")
-                  .attr("text-anchor", "middle")
-                  .attr("dy", ".3em")
-                  .attr("transform", function(d) {
-                    return "translate(" + [d.source.x0 + d.source.dx / 2, d.source.dimension.y0 + d.target.dimension.y0 >> 1] + ")rotate(90)";
-                  })
-                  .text(function(d) { return d.source.dx > 15 ? d.node.name : null; })
-                  .style("opacity", 1e-6))
-                  .style("opacity", 1);
-              iceTransition(vis.selectAll("g.dimension rect, g.category")
-                  .style("opacity", 1))
-                  .style("opacity", 1e-6)
-                  .each("end", function() { d3.select(this).attr("visibility", "hidden"); });
-              iceTransition(vis.selectAll("text.dimension"))
-                  .attr("transform", "translate(0,-5)");
-              vis.selectAll("tspan.sort").style("visibility", "hidden");
-            } else {
-              vis.on("mousedown.icicle", null)
-                .select(".ribbon").selectAll("path")
-                  .each(function(d) {
-                    var s = d.source,
-                        t = d.target;
-                    s.node.x0 = s.node.x;
-                    s.x0 = s.x;
-                    s.dx = s.dx0;
-                    t.node.x0 = t.node.x;
-                    t.x0 = t.x;
-                    t.dx = t.dx0;
-                  });
-              iceTransition(vis.selectAll("path"))
-                  .attr("d", function(d) {
-                    var s = d.source,
-                        t = d.target;
-                    return ribbonPath(s, t, tension);
-                  })
-                  .style("stroke-opacity", null);
-              iceTransition(vis.selectAll("text.icicle"))
-                  .style("opacity", 1e-6).remove();
-              iceTransition(vis.selectAll("g.dimension rect, g.category")
-                  .attr("visibility", null)
-                  .style("opacity", 1e-6))
-                  .style("opacity", 1);
-              iceTransition(vis.selectAll("text.dimension"))
-                  .attr("transform", "translate(0,-25)");
-              vis.selectAll("tspan.sort").style("visibility", null);
-            }
-          };
-          d3.select("#icicle")
-              .on("change", icicle)
-              .each(icicle);
-        });
-    
-        function iceTransition(g) {
-          return g.transition().duration(1000);
-        }
-    
-        function ribbonPath(s, t, tension) {
-          var sx = s.node.x0 + s.x0,
-              tx = t.node.x0 + t.x0,
-              sy = s.dimension.y0,
-              ty = t.dimension.y0;
-          return (tension === 1 ? [
-              "M", [sx, sy],
-              "L", [tx, ty],
-              "h", t.dx,
-              "L", [sx + s.dx, sy],
-              "Z"]
-           : ["M", [sx, sy],
-              "C", [sx, m0 = tension * sy + (1 - tension) * ty], " ",
-                   [tx, m1 = tension * ty + (1 - tension) * sy], " ", [tx, ty],
-              "h", t.dx,
-              "C", [tx + t.dx, m1], " ", [sx + s.dx, m0], " ", [sx + s.dx, sy],
-              "Z"]).join("");
-        }
-    
-        function stopClick() { d3.event.stopPropagation(); }
-    
-        // Given a text function and width function, truncates the text if necessary to
-        // fit within the given width.
-        function truncateText(text, width) {
-          return function(d, i) {
-            var t = this.textContent = text(d, i),
-                w = width(d, i);
-            if (this.getComputedTextLength() < w) return t;
-            this.textContent = "…" + t;
-            var lo = 0,
-                hi = t.length + 1,
-                x;
-            while (lo < hi) {
-              var mid = lo + hi >> 1;
-              if ((x = this.getSubStringLength(0, mid)) < w) lo = mid + 1;
-              else hi = mid;
-            }
-            return lo > 1 ? t.substr(0, lo - 2) + "…" : "";
-          };
-        }
-    
-        d3.select("#file").on("change", function() {
-          var file = this.files[0],
-              reader = new FileReader;
-          reader.onloadend = function() {
-            var csv = d3.csv.parse(reader.result);
-            vis.datum(csv).call(chart
-                .value(csv[0].hasOwnProperty("Number") ? function(d) { return +d.Number; } : 1)
-                .dimensions(function(d) { return d3.keys(d[0]).filter(function(d) { return d !== "Number"; }).sort(); }));
-          };
-          reader.readAsText(file);
-        });
-        // return vis;
-    }
-
-    fields = ["attacker1", "defender1", "AttackerOutcome", "season"];
-
-    main(fields, vis);
-
-    fields = ["attacker1", "defender1", "AttackerOutcome"];
-
-    main(fields, vis);
-</script>
+<script src="js/parsets/d3.min.js"></script>
+<script src="js/parsets/d3.parsets.js"></script>
+<script src="js/parsets/highlight.min.js"></script>
+<script src="js/parsets/parsets_more.js"></script>

@@ -1,0 +1,36 @@
+AttackerKing,DefenderKing,AttackerHouse,DefenderHouse,AttackerOutcome,BattleType,MajorDeath,MajorCapture,AttackerSize,DefenderSize,Season,Region
+Joffrey/Tommen Baratheon,Robb Stark,Lannister,Tully,victory,pitched battle,Yes,No,">10,000",">1,000 and <=10,000",summer,The Westerlands
+Joffrey/Tommen Baratheon,Robb Stark,Lannister,Baratheon,victory,ambush,Yes,No,unknown,">100 and <=1,000",summer,The Riverlands
+Joffrey/Tommen Baratheon,Robb Stark,Lannister,Tully,victory,pitched battle,No,Yes,">10,000",">10,000",summer,The Riverlands
+Robb Stark,Joffrey/Tommen Baratheon,Stark,Lannister,defeat,pitched battle,Yes,Yes,">10,000",">10,000",summer,The Riverlands
+Robb Stark,Joffrey/Tommen Baratheon,Stark,Lannister,victory,ambush,Yes,Yes,">1,000 and <=10,000",">1,000 and <=10,000",summer,The Riverlands
+Robb Stark,Joffrey/Tommen Baratheon,Stark,Lannister,victory,ambush,No,No,">1,000 and <=10,000",">10,000",summer,The Riverlands
+Joffrey/Tommen Baratheon,Robb Stark,Lannister,Darry,victory,pitched battle,No,No,unknown,unknown,summer,The Riverlands
+Balon/Euron Greyjoy,Robb Stark,Greyjoy,Stark,victory,pitched battle,No,No,unknown,unknown,summer,The North
+Balon/Euron Greyjoy,Robb Stark,Greyjoy,Stark,victory,siege,No,No,">1,000 and <=10,000",unknown,summer,The North
+Balon/Euron Greyjoy,Robb Stark,Greyjoy,Stark,victory,ambush,No,No,">100 and <=1,000",unknown,summer,The North
+Robb Stark,Balon/Euron Greyjoy,Stark,Greyjoy,victory,pitched battle,No,No,">100 and <=1,000",">100 and <=1,000",summer,The North
+Balon/Euron Greyjoy,Robb Stark,Greyjoy,Stark,victory,ambush,No,Yes,<=100,unknown,summer,The North
+Balon/Euron Greyjoy,Balon/Euron Greyjoy,Greyjoy,Stark,victory,siege,No,Yes,unknown,unknown,summer,The North
+Joffrey/Tommen Baratheon,Robb Stark,Bolton,Stark,victory,ambush,Yes,No,">100 and <=1,000",">1,000 and <=10,000",summer,The North
+Robb Stark,Joffrey/Tommen Baratheon,Stark,Lannister,victory,ambush,Yes,Yes,">1,000 and <=10,000",">10,000",summer,The Westerlands
+Stannis Baratheon,Renly Baratheon,Baratheon,Baratheon,victory,siege,Yes,No,">1,000 and <=10,000",">10,000",summer,The Stormlands
+Joffrey/Tommen Baratheon,Robb Stark,Lannister,Tully,defeat,pitched battle,No,No,">10,000",">10,000",summer,The Riverlands
+Robb Stark,Joffrey/Tommen Baratheon,Stark,Lannister,victory,ambush,Yes,No,">100 and <=1,000",">100 and <=1,000",summer,The Riverlands
+Robb Stark,Joffrey/Tommen Baratheon,Stark,Lannister,victory,ambush,No,No,">1,000 and <=10,000",unknown,summer,The Westerlands
+Stannis Baratheon,Joffrey/Tommen Baratheon,Baratheon,Lannister,defeat,pitched battle,Yes,Yes,">10,000",">1,000 and <=10,000",summer,The Crownlands
+Robb Stark,Joffrey/Tommen Baratheon,Darry,Lannister,victory,siege,No,No,unknown,unknown,summer,The Riverlands
+Robb Stark,Joffrey/Tommen Baratheon,Stark,Lannister,defeat,pitched battle,Yes,No,">1,000 and <=10,000",unknown,summer,The Crownlands
+Joffrey/Tommen Baratheon,Robb Stark,Lannister,Stark,victory,pitched battle,No,No,unknown,">1,000 and <=10,000",winter,The Riverlands
+Joffrey/Tommen Baratheon,null,Lannister,Brave Companions,victory,pitched battle,Yes,No,unknown,unknown,summer,The Riverlands
+Joffrey/Tommen Baratheon,Robb Stark,Frey,Stark,victory,ambush,Yes,Yes,">1,000 and <=10,000",">1,000 and <=10,000",summer,The Riverlands
+Robb Stark,Joffrey/Tommen Baratheon,Frey,Mallister,victory,siege,No,Yes,unknown,unknown,summer,The Riverlands
+Stannis Baratheon,Mance Rayder,Free folk,Night's Watch,defeat,siege,Yes,Yes,">10,000",">1,000 and <=10,000",winter,Beyond the Wall
+Joffrey/Tommen Baratheon,Balon/Euron Greyjoy,Bolton,Greyjoy,victory,siege,No,No,unknown,unknown,winter,The North
+Stannis Baratheon,Balon/Euron Greyjoy,Baratheon,Greyjoy,victory,pitched battle,No,No,">1,000 and <=10,000",">100 and <=1,000",winter,The North
+Balon/Euron Greyjoy,Joffrey/Tommen Baratheon,Greyjoy,Tyrell,victory,pitched battle,No,No,unknown,unknown,winter,The Reach
+Balon/Euron Greyjoy,Joffrey/Tommen Baratheon,Greyjoy,Tyrell,victory,razing,No,No,unknown,unknown,winter,The Reach
+Joffrey/Tommen Baratheon,Stannis Baratheon,Baratheon,Baratheon,victory,siege,No,No,unknown,">100 and <=1,000",winter,The Stormlands
+Joffrey/Tommen Baratheon,Stannis Baratheon,Baratheon,Baratheon,victory,siege,No,No,">1,000 and <=10,000",unknown,winter,The Stormlands
+Joffrey/Tommen Baratheon,Robb Stark,Lannister,Tully,victory,siege,No,No,">1,000 and <=10,000",unknown,winter,The Riverlands
+Joffrey/Tommen Baratheon,Robb Stark,Bracken,Blackwood,victory,siege,No,Yes,">1,000 and <=10,000",unknown,winter,The Riverlands
