@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <title>Parallel Sets</title>
+    <link rel="stylesheet" type="text/css" href="css/pretty-checkbox.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/d3.parsets.css"/>
+    <link rel="stylesheet" type="text/css" href="css/parsets_more.css"/>
+</head>
+
+<body>
+    <header>
+        <img src="img/matrix/parsets_title.jpg">
+        <br><br>
+    </header>
+        <audio autoplay="true" src="gotbgmusic1.mp3" controls loop>
+    </audio>
+
+<!-- add class p-switch -->
+<form id = "oForm" onchange="rebuild()">
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerHouse" id="chk_AttackerHouse" checked/>
+        <div class="state">
+            <label for='chk_AttackerHouse'>Attacker House</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "DefenderHouse" id="chk_DefenderHouse" checked/>
+        <div class="state">
+            <label for='chk_DefenderHouse'>Defender House</label>
+        </div>
+    </div>
+    
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerKing" id="chk_AttackerKing"/>
+        <div class="state">
+            <label for='chk_AttackerKing'>Attacker King</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "DefenderKing" id="chk_DefenderKing"/>
+        <div class="state">
+            <label for='chk_DefenderKing'>Defender King</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerOutcome" id="chk_AttackerOutcome" checked/>
+        <div class="state">
+            <label for='chk_AttackerOutcome'>Attacker Outcome</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "BattleType" id="chk_BattleType"/>
+        <div class="state">
+            <label for='chk_BattleType'>Battle Type</label>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "MajorDeath" id="chk_MajorDeath"/>
+        <div class="state">
+            <label for='chk_MajorDeath'>Major Death</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "MajorCapture" id="chk_MajorCapture"/>
+        <div class="state">
+            <label for='chk_MajorCapture'>Major Capture</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "AttackerSize" id="chk_AttackerSize"/>
+        <div class="state">
+            <label for='chk_AttackerSize'>Attacker Army Size</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "DefenderSize" id="chk_DefenderSize"/>
+        <div class="state">
+            <label for='chk_DefenderSize'>Defender Army Size</label>
+        </div>
+    </div>
+
+    <!-- <br><br> -->
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "Season" id="chk_Season"/>
+        <div class="state">
+            <label for='chk_Season'>Season</label>
+        </div>
+    </div>
+
+    <div class="pretty p-switch p-fill">
+        <input type="checkbox" name = "Region" id="chk_Region"/>
+        <div class="state">
+            <label for='chk_Region'>Region</label>
+        </div>
+    </div>
+
+</form>
+
+<br>
+<div id="vis"><noscript><img src="parsets.png"></noscript></div>
+
+<!-- <div class="options">
+    <span class="curves"><label for="curved"><input type="checkbox" id="curved" onchange="curves.call(this)"> Curves?</label></span>
+</div> -->
+
+<!-- <h2>Explanation</h2>
+<p>For each dimension (Survived, Sex, Age and Class), a horizontal bar is shown for each of its possible categories.  The width of the bar denotes the absolute number of matches for that category.
+<p>Starting with the first dimension (Survived), each of its categories is connected to a number of categories in the next dimension, showing how that category is subdivided. This subdividing is repeated recursively, producing a tree of “ribbons”.
+<p>In fact, you can imagine Parallel Sets as being an icicle plot, with icicles of the same category being “bundled” together.
+<p style="text-align: center"><label for="icicle" style="font-style: italic"><input type="checkbox" id="icicle"> Show icicle plot!</label>
+<p>Drag the dimensions and categories to reorder them. You can also click the “alpha” or “size” links that appear next to the dimension name on mouseover, to order the categories by name or frequency.
+
+<h2>Women and Children First?</h2>
+
+<p>We can see at a glance that the relative proportion of surviving women is far greater than that of the men.
+<p>As for children, it becomes clearer when we drag the <em>Age</em> dimension up: around half the children survived.  This is proportionally less than the women but more than the men.  Can you spot anything else interesting?
+
+<h2>Do It Yourself</h2>
+<p>The code is available as a reusable <a href="http://d3js.org/">D3.js</a> chart: <a href="http://github.com/jasondavies/d3-parsets">d3.parsets</a>.  This is a configurable function, which can be called on a D3 selection to produce an interactive SVG visualisation.
+<p>The input data should be bound to the target selection.  For input, you can either use an array of aggregated objects (pivot table) along with a <a href="http://github.com/jasondavies/d3-parsets#parsets_value">value</a> accessor, or you can simply use the full dataset and the grouped frequencies will be calculated automatically by default.
+
+<pre><code>var chart = d3.parsets()
+      .dimensions(["Survived", "Sex", "Age", "Class"]);
+
+var vis = d3.select("#vis").append("svg")
+    .attr("width", chart.width())
+    .attr("height", chart.height());
+
+d3.csv("titanic.csv", function(error, csv) {
+  vis.datum(csv).call(chart);
+});</code></pre>
+
+
+<h2>Alternatives</h2>
+<p>For multivariate categorical data, the <a href="http://www.theusrus.de/blog/understanding-mosaic-plots/">mosaic plot</a> (or Marimekko chart) is a powerful alternative.  Personally, I think it’s easier to see the order in which the subsets were derived in a parallel sets visualisation.  On the other hand, it seems easier to spot small disparities in a mosaic plot because the subsets are laid out side-by-side.  Here is a <a href="http://bl.ocks.org/1005090">Marimekko chart</a> in D3.js by <a href="http://bost.ocks.org/mike/">Mike Bostock</a>.
+<p>For multivariate ordinal data (such as numeric data), <a href="http://en.wikipedia.org/wiki/Parallel_coordinates">parallel coordinates</a> are more appropriate, although you can often generate meaningful categories from such data for use with parallel sets.
+
+<h2>Implementation Notes</h2>
+
+<p>Probably the most interesting part of implementing this was supporting multiple concurrent transitions on the ribbons.  Strictly speaking this wasn’t necessary as it’s unlikely anyone would drag two things within the transition duration.  But who would pass up an opportunity to use a <a href="http://github.com/mbostock/d3/wiki/Transitions#wiki-tween">custom tween</a>?
+
+<p>This allows the <em>x-</em> and <em>y-</em> components of the ribbons to be animated independently, so that you can drag a dimension vertically even though a horizontal category animation is in progress.
+
+<p><label for="slow"><input type="checkbox" id="slow" onchange="vis.call(chart.duration(this.checked ? 5000 : 500))"> Go slow!</label>
+
+<p>In case you missed it, be sure to click on “icicle plots” in the Explanation section to see the animated transition.
+
+<p><a href="http://news.ycombinator.com/item?id=3878877">Discuss on HN!</a>
+
+<h2>Further Reading</h2>
+<ul>
+  <li>Functionality based on <a href="http://eagereyes.org/parallel-sets">Parallel Sets</a> by <a href="http://coitweb.uncc.edu/~rkosara/">Robert Kosara</a> and <a href="http://www.cs.brown.edu/people/cziemki/">Caroline Ziemkiewicz</a>.
+  <li><a href="http://kosara.net/publications/Kosara_BeautifulVis_2010.html">Turning a Table into a Tree: Growing Parallel Sets into a Purposeful Project</a> by Robert Kosara.
+  <li><a href="http://kosara.net/publications/Bendix_InfoVis_2005.html">Parallel Sets: Visual Analysis of Categorical Data</a> by Fabian Bendix, Robert Kosara, Helwig Hauser.
+</ul>
+
+<p class="footer">Made by <a href="http://www.jasondavies.com/">Jason Davies</a>.  Thanks to <a href="http://bost.ocks.org/mike">Mike Bostock</a> for his suggestions (and of course, <a href="http://d3js.org/">D3.js</a>!) -->
+
+<script src="js/parsets/d3.min.js"></script>
+<script src="js/parsets/d3.parsets.js"></script>
+<script src="js/parsets/highlight.min.js"></script>
+<script src="js/parsets/parsets_more.js"></script>

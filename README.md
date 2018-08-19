@@ -1,22 +1,37 @@
-https://blog.patricktriest.com/game-of-thrones-map-node-postgres-redis/
+# GoT MSiA Final Project Interactive Map
 
-http://bl.ocks.org/ramiroaznar/3ce20b177abac5634602ed40b3f15f85
+Final Project MSiA 411 Data Viz Repo with final code
 
+## Instructions
 
+Clone or download the repo and launch through an http server.
+Please let the visuals load, tiles and assets can be fairly big.
 
-leaflet tutorial:
-https://leafletjs.com/examples/quick-start/
+### Running the server
 
-Map/leaflet tutorial:
-https://maptimeboston.github.io/leaflet-intro/
-https://www.datavizforall.org/transform/geojsonio/
+Open a bash cmd line in folder main directory and run python http server:
 
+```
+python -m http.server
+```
 
-npm map project
-https://www.npmjs.com/package/gotmap
+Our visuals can be launched through the individual index files at http://localhost:8000:
 
-Icons and assets:
-https://www.washingtonpost.com/graphics/entertainment/game-of-thrones/?utm_term=.d5b439e7a766
+```
+index_map.html
+index_matrix.html
+index_parsets.html
+```
 
-Building geojson paths in D3:
-https://www.dashingd3js.com/lessons/d3-geo-path
+## Built With
+
+* JS, JQuery, Ajax
+* [Leaflet](https://leafletjs.com/) - The web framework used to build the maps
+* [Official HBO Map](http://viewers-guide.hbo.com/game-of-thrones/season-7/episode-7/map) - Map Tiles used in the interactive map
+* [GoT API](https://api.got.show/doc/) - Used Data for Character journeys and battles
+
+## Team
+
+* **Rishabh Joshi**
+* **Daniel Lutolf-Carroll**
+* **Mengyu Sun**

@@ -1,0 +1,84 @@
+body {
+    font-family: "Helvetica Neue";
+    position:relative;
+}
+
+audio {
+
+  display:none;
+
+}
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="radio"] + label {
+    color:#000000;
+    font-family:"Helvetica Neue";
+    /*font-family:"leto";*/
+}
+
+input[type="radio"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 1px 0 0;
+    vertical-align:middle;
+    background:url("../../img/matrix/check_radio_sheet - Copy.png") -38px top no-repeat;
+    cursor:pointer;
+}
+
+input[type="radio"]:checked + label span {
+    background:url("../../img/matrix/check_radio_sheet - Copy.png") -57px top no-repeat;
+}
+
+header{
+  margin: 15px;
+}
+header img{
+  height: 60px;
+  vertical-align: middle;
+  margin-top: -25px;
+}
+header span{
+  font-weight: 300;
+  font-size: 50px;
+}
+#cta{
+  color: #999;
+  font-style: italic;
+  font-size: 0.8em;
+}
+#description{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 20px;
+  color: #000;
+  font-size: 0.8em;
+}
+#description a{
+  text-decoration: none;
+}
+@import url(https://bost.ocks.org/mike/style.css);
+/*body{margin-left: 100px;}*/
+.background {
+  fill: #f7f7f7;
+}
+line {
+  stroke: #fff;
+}
+text{
+  font-size: 0.7em;
+}
+text.active {
+  fill: blue;
+  font-weight:bold;
+  font-size: 0.9em;
+}
+svg{
+  padding-left: 120px;
+}
+.cell{
+  fill: #CCC;
+}

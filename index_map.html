@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Game of Thrones Map MSiA Visualization</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Adding Leaflet CSS for styling -->
+    <!--<link rel="stylesheet" href="http://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />-->
+    <!--<link href="http://cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <style>
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0;}
+        .my-div-icon {
+            font-family: 'Apple Chancery';
+            font-style: oblique;
+            color: #f9f9f9;
+            white-space: nowrap; 
+            text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000; 
+        }
+        .defstyle {
+            color: #2262CC,
+            weight: 2,
+            opacity: 0.6,
+            fillOpacity: 0.1,
+            fillColor: #2262CC;
+        }
+        .highlightStyle {
+            color: #2262CC, 
+            weight: 3,
+            opacity: 0.6,
+            fillOpacity: 0.65,
+            fillColor: #2262CC;
+        }
+        .myCSSClass {
+                background: white;
+                border: 2px solid black;}
+        .leaflet-tooltip-left.myCSSClass::before {
+                border-left-color: black;}
+        .leaflet-tooltip-right.myCSSClass::before {border-right-color: black;}
+
+        .map { height: 100% }
+        .sqs-audio-embed {
+        }
+
+
+    </style>
+</head>
+<body>
+    <audio class="sqs-audio-embed" autoplay=true src="sevenking.mp3" controls=true loop>
+    </audio>
+
+    <!--<div id="map1" class="map"></div>-->
+    <div id="map" class="map"></div>
+
+    <!--<script src="http://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>-->
+    <script src="//d3js.org/d3.v2.min.js" charset="utf-8"></script>
+    <!--<script src="http://cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet-src.js"></script>-->
+    <script src="js/leaflet.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <!--<script src="js/jquery.min.js"></script>-->
+    <!--<script src="js/leaflet.ajax.min.js"></script>-->
+    <script src="map_switcher.js"></script>
+    <!--<script src="js/animatemarker.js"></script>-->
+    <!--<script src="js/leaflet-glicer-animated.js"></script>-->
+    <script src="js/route.js"></script>
+    <script src="data/realms.json"></script>
+    <script src="data/test.js"></script>
+    <script src="data/countries.geojson"></script>
+    <script src="data/paths.json"></script>
+    <script src="data/cities.json"></script>
+    <script>
+
+    /*
+    *  Build maps and layers
+    *
+    */
+        var map = L.map('map', {
+            //center: [48, -3],
+            //zoomSnap: 0.25,
+            //zoomDelta: 0.25,
+            center: [5, 20],
+            zoom: 3,
+            //minZoom: 5,
+            zoomControl: false,
+            maxBounds: [[90,-180],[-43.87, 171.37]]
+            //maxBounds: [[50, -30], [-45, 100]]
+        });
+
+        //alert(realmdata[0]['path'])
+        //map.options.crs = L.CRS.EPSG4326;
+        
+        var hboZoom = L.extend({}, L.CRS.EPSG3857, {
+            scale: function(zoom) {
+                var factor;
+                switch (zoom) {
+                    case 4:
+                        factor = 2.166;
+                        break;
+                    case 5:
+                        factor = 2.0915;
+                        break;
+                    default:
+                        factor = 2;
+                }
+                return 256 * Math.pow(factor, zoom);
+            }
+        });
+        map.options.crs = hboZoom;
+
+        var realmsLayer = new L.layerGroup();
+        var colorlessLayer = new L.layerGroup(); //TODO?
+
+        var cityLayer = new L.layerGroup();
+        var castleLayer = new L.layerGroup();
+        var cityLabel = new L.layerGroup();
+
+
+        var aryaLayer = new L.layerGroup();
+        var daeLayer = new L.layerGroup();
+        var tyrLayer = new L.layerGroup();
+        var jonLayer = new L.layerGroup();
+        var jaimeLayer = new L.layerGroup();
+
+
+        var realmStore = {};
+        var realmsShown = false;
+        var realmsColored = false;
+
+
+        // Parsing Functions
+        toCoords = function(arr) {
+
+            //str = str.split(",") + '';
+            //return [parseFloat(arr[0]), parseFloat(arr[1])];
+            return [arr[0], arr[1]];
+        };
+
+        toCoordsPath = function(arr) {
+            temp = [];
+            for (a=0; a<arr.length; a++) {
+                temp.push(arr[a].path.map(toCoords))
+            }
+            var result = [].concat.apply([], temp);
+            //str = str.split(",") + '';
+            //return [parseFloat(arr[0]), parseFloat(arr[1])];
+            return result;
+        };
+
+        extractCoords = function(arr) {
+            x = arr.coordX;
+            y = arr.coordY;
+            return [y,x];
+        };
+
+
+        // Realms Functions
+        showRealms = function() {
+            if(!realmsColored) {
+                map.addLayer(colorlessLayer);
+                realmsColored = true;
+            } else {
+                map.removeLayer(colorlessLayer);
+                map.addLayer(realmsLayer);
+                realmsShown = true;
+                realmsColored = false;
+            }
+            return realmsShown;
+        };
+
+        hideRealms = function() {
+            if(realmsShown) {
+                map.removeLayer(realmsLayer);
+                realmsShown = false;
+                return realmsShown;
+            }
+        };      
+                    
+        toggleRealms = function() {
+            return realmsShown ? hideRealms() : showRealms();
+        };
+
+        //var allRealms = JSON.parse(realmdata);
+        //var allRealms = (typeof realmdata == "object") ? realmdata : JSON.parse(realmdata);
+        realmdata.map(function (realm) {
+            if(!realm.path) { 
+                return;
+            }
+
+            //realm.path = realm.path.map(toCoords);
+            //Initializes the different realms
+            realm.poly = L.polygon(realm.path, {
+                color: realm.color || 'red', 
+                opacity : 0.4
+            }).addTo(realmsLayer);
+
+            /*
+            .bindLabel(realm.name, {
+                className: 'gotmarker'
+            });  */
+
+            realmStore[realm.name] = realm; 
+            L.polygon(realm.path, {
+                color:'red', 
+                opacity : 0.2,
+                fillOpacity: 0.0
+            }).bindTooltip(realm.name,{
+                permanent: true, direction:"center", opacity: 0.7
+            }).addTo(colorlessLayer);
+        });
+
+/*
+        realmdata.map(function (realm) {
+            if(!realm.path) { // Skip missing borders
+                return;
+            }
+            realmsLayer.bindTooltip(realm.name,{
+                permanent: true, direction:"center"
+            }).openTooltip()
+        });
+*/
+
+
+        //Cities, City Label functions
+        cities.map(function (city) {
+
+            x = city.coordX;
+            y = city.coordY;
+            name = city.name;
+            type = city.type;
+
+            if (type != 'city' && type != 'town') {
+                return;
+            }
+
+            if (x == null || y == null || name == null) {
+                //console.log(typeof(name));
+                //console.log(y);
+                
+                return;
+            }
+
+            //console.log(parseFloat(y));
+            //console.log(typeof(name));
+            L.marker([parseFloat(y),parseFloat(x)], {
+                title : name,
+                icon : L.divIcon({
+                    className: 'my-div-icon',
+                    html : name,
+                    iconAnchor : [-20,0],
+
+                })
+            })
+            .addTo(cityLabel);
+
+        });
+
+        cities.map(function (city) {
+
+            x = city.coordX;
+            y = city.coordY;
+            name = city.name;
+            type = city.type;
+
+            if (type != 'city' && type != 'town') {
+                return;
+            }
+
+            if (x == null || y == null || name == null) {
+                return;
+            }
+
+            L.marker([parseFloat(y),parseFloat(x)], {
+                title : name,
+                icon : L.icon({
+                    iconUrl : 'img/labels/' + (type == '' ? 'other' : type) + '.png',
+                    iconSize : [20,20]
+                })
+            })
+            .addTo(cityLayer);
+
+        });
+
+        cities.map(function (city) {
+
+            x = city.coordX;
+            y = city.coordY;
+            name = city.name;
+            type = city.type;
+
+            if (type != 'castle' && type != 'ruin') {
+                return;
+            }
+
+            if (x == null || y == null || name == null) {
+                return;
+            }
+
+            L.marker([parseFloat(y),parseFloat(x)], {
+                title : name,
+                icon : L.icon({
+                    iconUrl : 'img/labels/' + (type == '' ? 'other' : type) + '.png',
+                    iconSize : [20,20]
+                })
+            })
+            .addTo(castleLayer);
+
+        });
+
+        // Important arrays for the character labels and assets
+        var chararray = ['Arya Stark','Daenerys Targaryen','Tyrion Lannister','Jaime Lannister','Jon Snow']
+        var charlayers = [aryaLayer, daeLayer, tyrLayer, jaimeLayer, jonLayer]
+        var pathcolors = ['#3b4960', '#871212', '#00782A', '#fffa1c', '#1f1f1f']
+
+        // Code to build custom icons to follow the animation
+        // Couldn't get it finished before presentation
+        var aryaIcon = L.icon({
+                iconUrl: 'img/icons/arya.png',
+                iconSize: [30, 30],
+                iconAnchor: [24, 24]
+            });
+        var daenerysIcon = L.icon({
+                iconUrl: 'img/icons/daenerys.png',
+                iconSize: [30, 30],
+                iconAnchor: [24, 24]
+            });        
+        var jaimeIcon = L.icon({
+                iconUrl: 'img/icons/jaime.png',
+                iconSize: [30, 30],
+                iconAnchor: [24, 24]
+            });        
+        var jonsnowIcon = L.icon({
+                iconUrl: 'img/icons/jonsnow.png',
+                iconSize: [30, 30],
+                iconAnchor: [24, 24]
+            });
+        var tyrionIcon = L.icon({
+                iconUrl: 'img/icons/tyrion.png',
+                iconSize: [30, 30],
+                iconAnchor: [24, 24]
+            });
+
+
+
+        for (i=0; i < chararray.length; i++) {
+            charpaths.map(function (character){
+                if(character.name != chararray[i]) {
+                    return;
+                }
+                //alert(character.path[0].path.toString());
+                var poly = L.polyline(toCoordsPath(character.path), {
+                    color: pathcolors[i],
+                    weight : 5,
+                    snakingSpeed: 100
+                }).addTo(charlayers[i]);
+
+            });
+        }
+
+
+        var realmsCtrl = L.Control.extend({
+            options: {
+                position: 'topleft'
+            },
+            onAdd: function(map) {
+                var c = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom glyphicon glyphicon-flag');
+                L.DomEvent.disableClickPropagation(c);
+                c.setAttribute("data-toggle", "tooltip");
+                c.setAttribute("data-placement", "bottom");
+                c.title = 'Show / Hide Realms';
+                
+                jQuery(c).on('click', function() {
+                    toggleRealms();
+                });
+                return c;
+            },
+        });
+
+        map.addControl(new realmsCtrl());
+
+        //L.control.layers(realmsLayer, colorlessLayer, {collapsed: false}).addTo(map);
+
+        //var geojsonLayer = new L.GeoJSON.AJAX("data/realms.js");
+        //geojsonLayer.addTo(map);     
+        //var polCollection = L.polygon( geojsonLayer )
+        //polCollection.eachLayer( function(pol) {
+        //bounds = pol.getBounds()
+        //});
+
+/*
+        var realmsCtrl = L.Control.extend({
+            options: {
+                position: 'topright'
+            },
+            onAdd: function(map) {
+                var c = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom glyphicon glyphicon-flag');
+                L.DomEvent.disableClickPropagation(c);
+                c.setAttribute("data-toggle", "tooltip");
+                c.setAttribute("data-placement", "bottom");
+                c.title = 'Show / Hide Realms';
+                
+                jQuery(c).on('click', function() {
+                    publicFunctions.toggleRealms();
+                }).tooltip();
+                return c;
+            },
+        });
+        map.addControl(new realmsCtrl());
+*/
+
+        
+        // Map Controler and layer switcher
+        var defaultLayer = L.tileLayer.change('gotLocal').addTo(map);
+
+        var baseLayers = {
+            'GoT Map HBO': defaultLayer,
+            'GoT Map Classic': L.tileLayer.change('gotClassic'),
+        };
+
+        var overlayLayers = {
+            //'Realms': L.tileLayer.change('gotRealms'),
+            //'Cities': L.tileLayer.change('gotCities'),
+            'Labels' : L.tileLayer.change('gotLabels'),
+            'Realms' : realmsLayer,
+            'Borders' : colorlessLayer,
+            'City Labels' : cityLabel,
+            'Cities' : cityLayer,
+            'Castles' : castleLayer,
+            'Arya Stark' : aryaLayer,
+            'Daenerys Targaryen' : daeLayer,
+            'Tyrion Lannister' : tyrLayer,
+            'Jaime Lannister' : jaimeLayer,
+            'Jon Snow' : jonLayer
+            
+        };
+
+        L.control.layers(baseLayers, overlayLayers, {collapsed: false}).addTo(map);
+
+        // Animation code
+        function snake(to_do) {
+            console.log(to_do)
+            charlayers[to_do].snakeIn();
+        }
+
+        // resize layers control to fit into view.
+        function resizeLayerControl () {
+            var layerControlHeight = document.body.clientHeight - (10 + 50);
+            var layerControl = document.getElementsByClassName('leaflet-control-layers-expanded')[0];
+
+            layerControl.style.overflowY = 'auto';
+            layerControl.style.maxHeight = layerControlHeight + 'px';
+        }
+        map.on('resize', resizeLayerControl);
+        resizeLayerControl();
+
+        var checks = document.querySelectorAll('[type = "checkbox"]');
+        var switcher = document.querySelectorAll('[type = "radio"]');
+
+        function snakeActivate() {
+            checks[6].onclick = function() { charlayers[0].snakeIn(); };
+            checks[7].onclick = function() { charlayers[1].snakeIn(); };
+            checks[8].onclick = function() { charlayers[2].snakeIn(); };
+            checks[9].onclick = function() { charlayers[3].snakeIn(); };
+            checks[10].onclick = function() { charlayers[4].snakeIn(); };
+        };
+
+
+        // Attempt to fix the GoT Classic Map using custom CRS
+        // Could not get it to fix, requires a lot more time and effort
+        function mapFixer() {
+            switcher[0].onclick = function() {
+
+            map.options.crs = hboZoom;
+            map.options.center = [5, 20];
+            map.options.zoom = 3;
+            map.options.maxBounds = [[90,-180],[-43.87, 171.37]];
+            
+             };
+
+
+            switcher[1].onclick = function() { 
+            //map.options.crs = L.CRS.EPSG4326;
+            map.options.center = [48, -3];
+            map.options.zoom = 5;
+            map.options.maxBounds = [[50, -30], [-45, 100]];
+
+             };
+
+        };
+
+        snakeActivate();
+
+
+        //mapFixer();
+
+    </script>
+</body>
+</html>
